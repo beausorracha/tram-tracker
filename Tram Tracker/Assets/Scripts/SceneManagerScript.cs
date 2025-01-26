@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerScript : MonoBehaviour
 {
-    public void LoadScene(string sceneName)
+    public void LoadScene(string UniversityMapScene)
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(UniversityMapScene);
     }
 
 }
