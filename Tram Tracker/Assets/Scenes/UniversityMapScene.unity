@@ -586,6 +586,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splineContainer: {fileID: 1450772497}
   speed: 0.03
+--- !u!4 &49190235 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1898215150177797514, guid: a602c5dbf0a094ccc9a783fd480e7fd4, type: 3}
+  m_PrefabInstance: {fileID: 760437096}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &58012218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19789,7 +19794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b135b51cda934cb0a3b2753823b5ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tram: {fileID: 0}
+  tram: {fileID: 49190235}
   offset: {x: 0, y: 5, z: -10}
   smoothSpeed: 5
 --- !u!1001 &1359586310
