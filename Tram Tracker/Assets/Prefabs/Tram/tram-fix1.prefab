@@ -53,7 +53,8 @@ PrefabInstance:
       value: tram-fix1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 65702495048144492, guid: 26fe1e1da5d924320ad9bb5e93f902d9, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26fe1e1da5d924320ad9bb5e93f902d9, type: 3}
