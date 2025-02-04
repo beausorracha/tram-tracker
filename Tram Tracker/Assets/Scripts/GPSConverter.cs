@@ -25,6 +25,21 @@ public class GPSConverter : MonoBehaviour
         double zMeters = deltaLat * metersPerDegreeLat;
 
         // Map to Unity world
-        return refUnityPosition + new Vector3((float)xMeters, 0, (float)zMeters);
+        // return refUnityPosition + new Vector3((float)xMeters, 0, (float)zMeters);
+        // return refUnityPosition + new Vector3((float)zMeters, 0,(float)xMeters);
+        // return refUnityPosition + new Vector3(-(float)xMeters, 0, (float)zMeters);
+        Vector3 unityPos = refUnityPosition + new Vector3((float)zMeters, 0, -(float)xMeters);
+
+        // Apply 15-degree rotation to the left
+        float angle = 16f * Mathf.Deg2Rad; // Convert to radians
+        float cos = Mathf.Cos(angle);
+        float sin = Mathf.Sin(angle);
+
+        float rotatedX = cos * (unityPos.x - refUnityPosition.x) - sin * (unityPos.z - refUnityPosition.z) + refUnityPosition.x;
+        float rotatedZ = sin * (unityPos.x - refUnityPosition.x) + cos * (unityPos.z - refUnityPosition.z) + refUnityPosition.z;
+
+        return new Vector3(rotatedX, unityPos.y, rotatedZ);
+
+
     }
 }
