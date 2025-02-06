@@ -11,4 +11,9 @@ public class NotificationOpener : MonoBehaviour
             Panel.SetActive(true);
         }
     }
+
+    public void CloseNotification()
+    {
+        Panel.SetActive(false);
+    }
 }
