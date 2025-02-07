@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.Splines; // Make sure Unity's Spline package is installed
-using Unity.Mathematics;  // Required for float3
 
 public class GPSConverter : MonoBehaviour
 {
@@ -10,9 +8,6 @@ public class GPSConverter : MonoBehaviour
 
     // The corresponding position of the new road in Unity
     public Vector3 refUnityPosition = new Vector3(205.45f, 0, 533.8f);  // Updated starting position
-
-    [Header("Spline Settings")]
-    public SplineContainer roadSpline;  // Assign your road spline in Inspector
 
     public Vector3 ConvertGPSToUnity(double latitude, double longitude)
     {
@@ -39,53 +34,32 @@ public class GPSConverter : MonoBehaviour
         float rotatedX = cos * (unityPos.x - refUnityPosition.x) - sin * (unityPos.z - refUnityPosition.z) + refUnityPosition.x;
         float rotatedZ = sin * (unityPos.x - refUnityPosition.x) + cos * (unityPos.z - refUnityPosition.z) + refUnityPosition.z;
 
-        Vector3 finalPos = new Vector3(rotatedX, unityPos.y, rotatedZ);
-
-        // Debug: Show sphere positions BEFORE snapping
-        Debug.Log($"🟢 Before Spline Snapping: {finalPos}");
-
-        // Snap to the closest spline point
-        Vector3 snappedPos = GetClosestPointOnSpline(finalPos);
-
-        // Debug: Show sphere positions AFTER snapping
-        Debug.Log($"🔵 After Spline Snapping: {snappedPos}");
-
-        return snappedPos;
+        return new Vector3(rotatedX, unityPos.y, rotatedZ);
     }
+    public Vector2 ConvertUnityToGPS(Vector3 unityPosition)
+{
+    // Reverse the 16-degree rotation (undo transformation)
+    float angle = -16f * Mathf.Deg2Rad; // Convert to radians
+    float cos = Mathf.Cos(angle);
+    float sin = Mathf.Sin(angle);
 
-    private Vector3 GetClosestPointOnSpline(Vector3 unityPos)
-    {
-        if (roadSpline == null || roadSpline.Spline == null)
-        {
-            Debug.LogWarning("⚠️ No spline found! Returning raw position.");
-            return unityPos;
-        }
+    float unrotatedX = cos * (unityPosition.x - refUnityPosition.x) - sin * (unityPosition.z - refUnityPosition.z) + refUnityPosition.x;
+    float unrotatedZ = sin * (unityPosition.x - refUnityPosition.x) + cos * (unityPosition.z - refUnityPosition.z) + refUnityPosition.z;
 
-        float closestDistance = float.MaxValue;
-        Vector3 closestPoint = unityPos;
+    // Convert from Unity world meters back to GPS degrees
+    double metersPerDegreeLat = 111320; // Fixed lat-to-meters conversion
+    double metersPerDegreeLon = 111320 * Mathf.Cos((float)(refLatitude * Mathf.Deg2Rad));
 
-        // Iterate through spline knots (road markers) and find the closest one
-        foreach (var knot in roadSpline.Spline.Knots)
-        {
-            Vector3 point = knot.Position;
-            float distance = Vector3.Distance(unityPos, point);
+    double deltaLat = (unrotatedZ - refUnityPosition.z) / metersPerDegreeLat;
+    double deltaLon = (unrotatedX - refUnityPosition.x) / metersPerDegreeLon;
 
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                closestPoint = point;
-            }
-        }
+    // Compute new GPS coordinates
+    double latitude = refLatitude + deltaLat;
+    double longitude = refLongitude + deltaLon;
 
-        Debug.Log($"📍 Snapping to Spline: Closest Point {closestPoint}, Distance: {closestDistance}");
+    return new Vector2((float)latitude, (float)longitude);
+}
 
-        // If the closest distance is too far, we ignore snapping (keep the original position)
-        if (closestDistance > 5f)  // Adjust this threshold if needed
-        {
-            Debug.Log("🚨 Closest point too far, keeping original position.");
-            return unityPos;
-        }
 
-        return closestPoint;
-    }
+
 }

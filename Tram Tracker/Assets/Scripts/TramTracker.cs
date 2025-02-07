@@ -89,8 +89,6 @@ public class TramTracker : MonoBehaviour
             Vector2 gpsPoint = gpsTestPoints[currentTargetIndex];
             Vector3 targetPos = gpsConverter.ConvertGPSToUnity(gpsPoint.x, gpsPoint.y);
 
-            Debug.Log($"🚋 Moving to GPS: {gpsPoint} → Unity: {targetPos}");
-
             // Move towards the target position smoothly
             while (Vector3.Distance(tram.position, targetPos) > 0.1f)
             {

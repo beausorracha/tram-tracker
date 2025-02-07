@@ -16200,7 +16200,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 632170916}
-  - component: {fileID: 632170917}
   m_Layer: 0
   m_Name: TramHolder
   m_TagString: Untagged
@@ -16223,21 +16222,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &632170917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632170915}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a6464e4010304bcb870d3a71e14d401, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  splineContainer: {fileID: 1450772497}
-  speed: 0.03
-  progress: 0
 --- !u!1001 &639507780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30769,7 +30753,6 @@ MonoBehaviour:
   refLatitude: 13.612273188085357
   refLongitude: 100.83661200989619
   refUnityPosition: {x: 189, y: 0, z: 535}
-  roadSpline: {fileID: 1450772497}
 --- !u!4 &1271061541
 Transform:
   m_ObjectHideFlags: 0
