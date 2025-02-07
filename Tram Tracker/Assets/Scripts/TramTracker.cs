@@ -1,74 +1,102 @@
-using System;
 using UnityEngine;
-using StackExchange.Redis;
+using UnityEngine.Splines;
 
 public class TramTracker : MonoBehaviour
 {
-    private ConnectionMultiplexer redis;
-    private IDatabase db;
-
-    public string tramID = "tram_1"; // Change for different trams
-    public float latitude;
-    public float longitude;
-
-    // Tram movement speed
+    public SplineContainer spline;
     public float speed = 5.0f;
+
+    private float currentT = 0f;
+
+    public float testLatitude = 13.614202f;
+    public float testLongitude = 100.832780f;
+
+    private GPSConverter gpsConverter;
 
     void Start()
     {
-        try
+        gpsConverter = FindObjectOfType<GPSConverter>();
+
+        if (gpsConverter == null)
         {
-            // Connect to Redis
-            redis = ConnectionMultiplexer.Connect("redis-13242.crce178.ap-east-1-1.ec2.redns.redis-cloud.com:13242,password=z1WTBRd81HGrGckawMz6oHtHNOoXAAR3");
-            db = redis.GetDatabase();
-            Debug.Log("✅ Connected to Redis!");
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("❌ Redis Connection Error: " + e.Message);
+            Debug.LogError("❌ GPSConverter not found!");
+            return;
         }
 
-        InvokeRepeating("UpdateTramPosition", 1.0f, 1.0f); // Fetch data every second
+        Vector3 gpsWorldPosition = GPS2Unity(testLatitude, testLongitude);
+        AlignTramToSpline(gpsWorldPosition);
+
+        PrintSplinePoints();
     }
 
-    void UpdateTramPosition()
+    void Update()
     {
-        try
-        {
-            string latString = db.StringGet($"gps:{tramID}:latitude");
-            string lonString = db.StringGet($"gps:{tramID}:longitude");
+        MoveAlongSpline();
+    }
 
-            if (!string.IsNullOrEmpty(latString) && !string.IsNullOrEmpty(lonString))
-            {
-                // Explicitly cast to float to prevent errors
-                latitude = (float)Convert.ToDouble(latString);
-                longitude = (float)Convert.ToDouble(lonString);
+    void AlignTramToSpline(Vector3 worldPos)
+    {
+        float closestT = FindClosestPointOnSpline(worldPos);
+        currentT = closestT;
 
-                Debug.Log($"📡 Received GPS Data: Latitude {latitude}, Longitude {longitude}");
-                MoveTram(latitude, longitude);
-            }
-            else
-            {
-                Debug.LogWarning("⚠️ No GPS data found in Redis.");
-            }
-        }
-        catch (Exception e)
+        Vector3 closestPosition = spline.Spline.EvaluatePosition(closestT);
+        transform.position = closestPosition;
+
+        Vector3 direction = spline.Spline.EvaluateTangent(closestT);
+        transform.rotation = Quaternion.LookRotation(direction);
+
+        DebugPosition(worldPos, Color.red, "GPS Position");
+        DebugPosition(closestPosition, Color.blue, "Closest Spline Position");
+    }
+
+    void MoveAlongSpline()
+    {
+        if (currentT < 1.0f)
         {
-            Debug.LogError("❌ Error fetching GPS data: " + e.Message);
+            currentT += speed * Time.deltaTime / spline.Spline.GetLength();
+            transform.position = spline.Spline.EvaluatePosition(currentT);
+            transform.rotation = Quaternion.LookRotation(spline.Spline.EvaluateTangent(currentT));
         }
     }
 
-    void MoveTram(float lat, float lon)
+    float FindClosestPointOnSpline(Vector3 worldPos)
     {
-        Vector3 worldPos = GPS2Unity(lat, lon);
-        transform.position = Vector3.Lerp(transform.position, worldPos, Time.deltaTime * speed);
+        float closestT = 0f;
+        float minDistance = float.MaxValue;
+
+        for (float t = 0; t <= 1.0f; t += 0.01f)
+        {
+            Vector3 splinePos = spline.Spline.EvaluatePosition(t);
+            float distance = Vector3.Distance(worldPos, splinePos);
+
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestT = t;
+            }
+        }
+
+        return closestT;
     }
 
     Vector3 GPS2Unity(float lat, float lon)
     {
-        // Convert GPS coordinates to Unity world coordinates
-        float x = (lon - 100.832f) * 10000f; // Adjust scaling factor
-        float z = (lat - 13.612f) * 10000f;  // Adjust scaling factor
-        return new Vector3(x, 0, z); // Y is 0 for ground-level movement
+        return gpsConverter.ConvertGPSToUnity(lat, lon);
+    }
+
+    void DebugPosition(Vector3 position, Color color, string label)
+    {
+        GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        marker.transform.position = position;
+        marker.transform.localScale = Vector3.one * 2;
+        marker.GetComponent<Renderer>().material.color = color;
+    }
+
+    void PrintSplinePoints()
+    {
+        for (float t = 0; t <= 1.0f; t += 0.05f)
+        {
+            Debug.Log($"🛤️ Spline Unity Position at t={t}: {spline.Spline.EvaluatePosition(t)}");
+        }
     }
 }
