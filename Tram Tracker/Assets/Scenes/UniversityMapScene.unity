@@ -1148,6 +1148,20 @@ MonoBehaviour:
   gpsConverter: {fileID: 1271061540}
   tram: {fileID: 49190235}
   moveSpeed: 5
+--- !u!114 &49190237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49190232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83b5171c1c6d4cb9994b459dc66a997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stations: []
+  detectionRange: 10
 --- !u!1001 &58012218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22573,6 +22587,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1232860619974942512, guid: a602c5dbf0a094ccc9a783fd480e7fd4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 49190236}
+    - targetCorrespondingSourceObject: {fileID: 1232860619974942512, guid: a602c5dbf0a094ccc9a783fd480e7fd4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 49190237}
   m_SourcePrefab: {fileID: 100100000, guid: a602c5dbf0a094ccc9a783fd480e7fd4, type: 3}
 --- !u!1001 &767875424
 PrefabInstance:
@@ -46762,6 +46779,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614856986}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1616067832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1616067834}
+  - component: {fileID: 1616067833}
+  m_Layer: 0
+  m_Name: TramManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1616067833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616067832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8805992247d1144caac1cca703325b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tramPosition: {x: 0, y: 0, z: 0}
+  nextStation: 
+--- !u!4 &1616067834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616067832}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 598.52246, y: 1428.7487, z: 78.31265}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1616292877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4823253685639953364, guid: 5282094a8052e4f60b1f6fc84179f681, type: 3}
@@ -62514,3 +62577,4 @@ SceneRoots:
   - {fileID: 888893922}
   - {fileID: 2024961442}
   - {fileID: 1064629734}
+  - {fileID: 1616067834}
