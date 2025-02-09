@@ -127,25 +127,37 @@ public class GPSRoadDebugger : MonoBehaviour
 
         // AddMarker(13.614978, 100.833956);
 
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
-        // AddMarker();
+        AddMarker(13.613077, 100.837091);
+        AddMarker(13.613279, 100.837156);
+        AddMarker(13.613257, 100.837379);
+        AddMarker(13.613170, 100.837694);
+        AddMarker(13.613046, 100.838149);
+        AddMarker(13.612858, 100.838805);
+        AddMarker(13.612714, 100.839304);
+        AddMarker(13.612734, 100.839536);
+        AddMarker(13.612683, 100.839619);
+        AddMarker(13.612557, 100.839575);
+        AddMarker(13.612595, 100.839452);
+        AddMarker(13.612612, 100.839687);
+        AddMarker(13.612574, 100.839796);
+        AddMarker(13.612548, 100.839886);
+        AddMarker(13.612485, 100.839503);
+        AddMarker(13.612376, 100.839465);
+        AddMarker(13.612515, 100.840012);
+        AddMarker(13.612460, 100.840202);
+        AddMarker(13.612423, 100.840328);
+        AddMarker(13.612397, 100.840418);
+        AddMarker(13.612330, 100.840650);
+        AddMarker(13.612613, 100.840080);
+        AddMarker(13.612721, 100.840114);
+        AddMarker(13.612847, 100.840148);
+        AddMarker(13.612956, 100.840176);
+        AddMarker(13.612992, 100.840298);
+        AddMarker(13.612943, 100.840410);
+        AddMarker(13.612824, 100.840404);
+        AddMarker(13.612731, 100.840379);
+        AddMarker(13.612615, 100.840347);
+        AddMarker(13.612527, 100.840321);
     }
 
     void AddMarker(double lat, double lon)
