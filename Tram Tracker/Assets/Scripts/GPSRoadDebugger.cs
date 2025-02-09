@@ -116,6 +116,16 @@ public class GPSRoadDebugger : MonoBehaviour
         AddMarker(13.612950, 100.834343);
         AddMarker(13.612989, 100.834218);
         AddMarker(13.613077, 100.833994);
+
+        AddMarker(13.614978, 100.833956);
+
+        AddMarker(13.615106, 100.833957);
+
+        AddMarker(13.615211, 100.834029);
+
+        AddMarker(13.615104, 100.834055);
+
+        AddMarker(13.614978, 100.833956);
     }
 
     void AddMarker(double lat, double lon)
