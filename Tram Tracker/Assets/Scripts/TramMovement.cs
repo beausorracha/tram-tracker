@@ -2,13 +2,17 @@ using UnityEngine;
 
 public class TramMovement : MonoBehaviour
 {
-    public Transform[] stations; //Need to add 4 stations here!
+    public Transform[] stations;
     public float detectionRange = 10f;
+    public float tramSpeed = 10f; // Speed in units per second
 
     private void Update()
     {
-        // Update tram position in TramLocation
-        TramLocation.Instance.UpdateTramPosition(transform.position);
+        if (TramLocation.Instance != null)
+        {
+            // Update tram position in TramLocation
+            TramLocation.Instance.UpdateTramPosition(transform.position);
+        }
 
         // Find the closest station
         Transform nearestStation = null;
@@ -27,7 +31,7 @@ public class TramMovement : MonoBehaviour
         // Update next station if within detection range
         if (nearestStation != null && shortestDistance <= detectionRange)
         {
-            TramLocation.Instance.SetNextStation(nearestStation.name);
+            TramLocation.Instance.SetNextStation(nearestStation.name, nearestStation.position, tramSpeed);
         }
     }
 }
