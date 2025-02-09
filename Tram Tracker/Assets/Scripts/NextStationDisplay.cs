@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class NextStationDisplay : MonoBehaviour
 {
-    public Text stationText;
+    // public Text stationText;
+    public TMP_Text stationText;
 
     private void Update()
     {

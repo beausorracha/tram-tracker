@@ -702,6 +702,7 @@ GameObject:
   - component: {fileID: 793292800}
   - component: {fileID: 793292802}
   - component: {fileID: 793292801}
+  - component: {fileID: 793292803}
   m_Layer: 5
   m_Name: TramNextStation
   m_TagString: Untagged
@@ -748,7 +749,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Next Station: AU Mall Station'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
   m_sharedMaterial: {fileID: -1070156641545715890, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
@@ -827,6 +828,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793292799}
   m_CullTransparentMesh: 1
+--- !u!114 &793292803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793292799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf12eb91de3744531a77418b86f0423a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stationText: {fileID: 793292801}
 --- !u!1 &893399500
 GameObject:
   m_ObjectHideFlags: 0
