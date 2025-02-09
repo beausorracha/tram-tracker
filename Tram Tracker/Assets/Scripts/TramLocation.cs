@@ -5,6 +5,7 @@ public class TramLocation : MonoBehaviour
     public static TramLocation Instance;
     public Vector3 tramPosition;
     public string nextStation;
+    public float estimatedArrivalTime;
 
     private void Awake()
     {
@@ -24,8 +25,12 @@ public class TramLocation : MonoBehaviour
         tramPosition = newPosition;
     }
 
-    public void SetNextStation(string stationName)
+    public void SetNextStation(string stationName, Vector3 stationPosition, float tramSpeed)
     {
         nextStation = stationName;
+
+        // Calculate Estimated Arrival Time (ETA)
+        float distanceToStation = Vector3.Distance(tramPosition, stationPosition);
+        estimatedArrivalTime = tramSpeed > 0 ? distanceToStation / tramSpeed : 0;
     }
 }

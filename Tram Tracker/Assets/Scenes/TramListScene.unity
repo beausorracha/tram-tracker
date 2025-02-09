@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 10728530}
   - component: {fileID: 10728529}
   - component: {fileID: 10728531}
+  - component: {fileID: 10728532}
   m_Layer: 5
   m_Name: TramMins
   m_TagString: Untagged
@@ -177,7 +178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In 5 minutes
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 75a83bc59f5c54778bca09abdf40135f, type: 2}
   m_sharedMaterial: {fileID: 7628506131803892877, guid: 75a83bc59f5c54778bca09abdf40135f, type: 2}
@@ -282,6 +283,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &10728532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10728527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf12eb91de3744531a77418b86f0423a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stationText: {fileID: 0}
+  arrivalTimeText: {fileID: 10728529}
 --- !u!1 &57417907
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,6 +856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stationText: {fileID: 793292801}
+  arrivalTimeText: {fileID: 0}
 --- !u!1 &893399500
 GameObject:
   m_ObjectHideFlags: 0
