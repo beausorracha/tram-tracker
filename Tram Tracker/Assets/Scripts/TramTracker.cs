@@ -12,48 +12,48 @@ public class TramTracker : MonoBehaviour
     [Header("Fixed GPS Test Data")]
     private List<Vector2> gpsTestPoints = new List<Vector2>
     {
-        new Vector2((float)13.612263, (float)100.836828),
-        new Vector2((float)13.612389, (float)100.836676),
-        new Vector2((float)13.612412, (float)100.836585),
-        new Vector2((float)13.612441, (float)100.836478),
-        new Vector2((float)13.612473, (float)100.836363),
-        new Vector2((float)13.612508, (float)100.836238),
-        new Vector2((float)13.612534, (float)100.836147),
-        new Vector2((float)13.612633, (float)100.835787),
-        new Vector2((float)13.612686, (float)100.835602),
-        new Vector2((float)13.612740, (float)100.835415),
-        new Vector2((float)13.612796, (float)100.835222),
-        new Vector2((float)13.612860, (float)100.835001),
-        new Vector2((float)13.612950, (float)100.834689),
-        new Vector2((float)13.613051, (float)100.834310),
-        new Vector2((float)13.613115, (float)100.833858),
-        new Vector2((float)13.613170, (float)100.833660),
-        new Vector2((float)13.613202, (float)100.833545),
-        new Vector2((float)13.613137, (float)100.833424),
-        new Vector2((float)13.613034, (float)100.833390),
-        new Vector2((float)13.612942, (float)100.833365),
-        new Vector2((float)13.612815, (float)100.833320),
-        new Vector2((float)13.612710, (float)100.833239),
-        new Vector2((float)13.612659, (float)100.833162),
-        new Vector2((float)13.612630, (float)100.833066),
-        new Vector2((float)13.612630, (float)100.832969),
-        new Vector2((float)13.612650, (float)100.832864),
-        new Vector2((float)13.612673, (float)100.832775),
-        new Vector2((float)13.612708, (float)100.832643),
-        new Vector2((float)13.612734, (float)100.832550),
-        new Vector2((float)13.612763, (float)100.832447),
-        new Vector2((float)13.612791, (float)100.832348),
-        new Vector2((float)13.612818, (float)100.832253),
-        new Vector2((float)13.612844, (float)100.832160),
-        new Vector2((float)13.612869, (float)100.832071),
-        new Vector2((float)13.612906, (float)100.831941),
-        new Vector2((float)13.612937, (float)100.831829),
-        new Vector2((float)13.612962, (float)100.831739),
-        new Vector2((float)13.612986, (float)100.831645),
-        new Vector2((float)13.613009, (float)100.831551),
-        new Vector2((float)13.613034, (float)100.831459),
-        new Vector2((float)13.613068, (float)100.831338),
-        new Vector2((float)13.613114, (float)100.831223)
+        new Vector2(13.612263f, 100.836828f),
+        new Vector2(13.612389f, 100.836676f),
+        new Vector2(13.612412f, 100.836585f),
+        new Vector2(13.612441f, 100.836478f),
+        new Vector2(13.612473f, 100.836363f),
+        new Vector2(13.612508f, 100.836238f),
+        new Vector2(13.612534f, 100.836147f),
+        new Vector2(13.612633f, 100.835787f),
+        new Vector2(13.612686f, 100.835602f),
+        new Vector2(13.612740f, 100.835415f),
+        new Vector2(13.612796f, 100.835222f),
+        new Vector2(13.612860f, 100.835001f),
+        new Vector2(13.612950f, 100.834689f),
+        new Vector2(13.613051f, 100.834310f),
+        new Vector2(13.613115f, 100.833858f),
+        new Vector2(13.613170f, 100.833660f),
+        new Vector2(13.613202f, 100.833545f),
+        new Vector2(13.613137f, 100.833424f),
+        new Vector2(13.613034f, 100.833390f),
+        new Vector2(13.612942f, 100.833365f),
+        new Vector2(13.612815f, 100.833320f),
+        new Vector2(13.612710f, 100.833239f),
+        new Vector2(13.612659f, 100.833162f),
+        new Vector2(13.612630f, 100.833066f),
+        new Vector2(13.612630f, 100.832969f),
+        new Vector2(13.612650f, 100.832864f),
+        new Vector2(13.612673f, 100.832775f),
+        new Vector2(13.612708f, 100.832643f),
+        new Vector2(13.612734f, 100.832550f),
+        new Vector2(13.612763f, 100.832447f),
+        new Vector2(13.612791f, 100.832348f),
+        new Vector2(13.612818f, 100.832253f),
+        new Vector2(13.612844f, 100.832160f),
+        new Vector2(13.612869f, 100.832071f),
+        new Vector2(13.612906f, 100.831941f),
+        new Vector2(13.612937f, 100.831829f),
+        new Vector2(13.612962f, 100.831739f),
+        new Vector2(13.612986f, 100.831645f),
+        new Vector2(13.613009f, 100.831551f),
+        new Vector2(13.613034f, 100.831459f),
+        new Vector2(13.613068f, 100.831338f),
+        new Vector2(13.613114f, 100.831223f)
     };
 
     private int currentTargetIndex = 0;
@@ -72,41 +72,48 @@ public class TramTracker : MonoBehaviour
             return;
         }
 
+        // Set tram at the first GPS point
+        Vector3 startPos = gpsConverter.ConvertGPSToUnity(gpsTestPoints[0].x, gpsTestPoints[0].y);
+        tram.position = startPos;
+
         StartCoroutine(MoveTramAlongTestPath());
     }
 
     IEnumerator MoveTramAlongTestPath()
+{
+    while (currentTargetIndex < gpsTestPoints.Count - 1)
     {
-        while (true)
+        Vector2 gpsPoint = gpsTestPoints[currentTargetIndex];
+        Vector2 nextGpsPoint = gpsTestPoints[currentTargetIndex + 1];
+
+        Vector3 startPos = gpsConverter.ConvertGPSToUnity(gpsPoint.x, gpsPoint.y);
+        Vector3 targetPos = gpsConverter.ConvertGPSToUnity(nextGpsPoint.x, nextGpsPoint.y);
+
+        float totalDistance = Vector3.Distance(startPos, targetPos);
+        float journeyTime = totalDistance / moveSpeed; // Adjust based on distance
+        float journey = 0f;
+
+        while (journey < 1f) // Ensures smooth and gradual movement
         {
-            if (currentTargetIndex >= gpsTestPoints.Count)
+            journey += Time.deltaTime / journeyTime;
+            tram.position = Vector3.Lerp(startPos, targetPos, journey);
+
+            // 🔥 Fix: Rotate the tram correctly
+            Vector3 direction = (targetPos - tram.position).normalized;
+            if (direction != Vector3.zero)
             {
-                Debug.Log("✅ Tram reached the last test point.");
-                yield break; // Stop moving when all points are reached
+                tram.rotation = Quaternion.LookRotation(direction) * Quaternion.Euler(0, 90, 0); // Adjust rotation
             }
 
-            // Get next GPS position
-            Vector2 gpsPoint = gpsTestPoints[currentTargetIndex];
-            Vector3 targetPos = gpsConverter.ConvertGPSToUnity(gpsPoint.x, gpsPoint.y);
-
-            // Move towards the target position smoothly
-            while (Vector3.Distance(tram.position, targetPos) > 0.1f)
-            {
-                tram.position = Vector3.Lerp(tram.position, targetPos, Time.deltaTime * moveSpeed);
-                
-                // Align tram with movement direction
-                Vector3 direction = (targetPos - tram.position).normalized;
-                if (direction != Vector3.zero)
-                {
-                    tram.rotation = Quaternion.LookRotation(direction);
-                }
-
-                yield return null;
-            }
-
-            // Move to the next GPS point
-            currentTargetIndex++;
-            yield return new WaitForSeconds(1.5f); // Small delay between movements
+            yield return null; // Wait for next frame (NO delays)
         }
+
+        // Move to the next GPS point
+        currentTargetIndex++;
     }
+
+    Debug.Log("✅ Tram reached the last test point.");
+}
+
+
 }

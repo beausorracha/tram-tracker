@@ -1079,21 +1079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gpsConverter: {fileID: 1271061540}
   tram: {fileID: 49190235}
-  moveSpeed: 5
---- !u!114 &49190237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 49190232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f83b5171c1c6d4cb9994b459dc66a997, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stations: []
-  detectionRange: 10
+  moveSpeed: 10
 --- !u!1001 &58012218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20228,9 +20214,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1232860619974942512, guid: a602c5dbf0a094ccc9a783fd480e7fd4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 49190236}
-    - targetCorrespondingSourceObject: {fileID: 1232860619974942512, guid: a602c5dbf0a094ccc9a783fd480e7fd4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 49190237}
   m_SourcePrefab: {fileID: 100100000, guid: a602c5dbf0a094ccc9a783fd480e7fd4, type: 3}
 --- !u!1 &768871718
 GameObject:
@@ -42064,6 +42047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tramPosition: {x: 0, y: 0, z: 0}
   nextStation: 
+  estimatedArrivalTime: 0
 --- !u!4 &1616067834
 Transform:
   m_ObjectHideFlags: 0
