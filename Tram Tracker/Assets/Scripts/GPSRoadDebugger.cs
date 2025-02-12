@@ -226,9 +226,40 @@ public class GPSRoadDebugger : MonoBehaviour
         // AddMarker(13.612485, 100.839503);
 
         // AddMarker(13.61182, 100.83847);
-        AddMarker(13.612858, 100.838805);
+        // AddMarker(13.612858, 100.838805);
+        // AddMarker(13.614691, 100.832482);
+        // AddMarker(13.615444, 100.832822);
+        // AddMarker(13.616157, 100.832935);
+        // AddMarker(13.616268, 100.832996);
+        // AddMarker(13.616293, 100.833116);
+        // AddMarker(13.616310, 100.833348);
+        // AddMarker(13.616334, 100.834058);
+        // AddMarker(13.616323, 100.834161);
+        // AddMarker(13.616281, 100.834245);
+        // AddMarker(13.616204, 100.834300);
+        // AddMarker(13.616113, 100.834309);
+        // AddMarker(13.615994, 100.834276);
+        // AddMarker(13.615785, 100.834212);
 
-        
+        // // Sahara
+        // AddMarker(13.615054, 100.834178);
+        // AddMarker(13.615020, 100.834297);
+        // AddMarker(13.614985, 100.834416);
+        // AddMarker(13.614947, 100.834543);
+        // AddMarker(13.614919, 100.834642);
+        // AddMarker(13.614891, 100.834748);
+        // AddMarker(13.614879, 100.834858);
+        // AddMarker(13.614911, 100.834952);
+
+        // Com Arts
+        AddMarker(13.611656, 100.835267);
+
+        // Studio
+        AddMarker(13.611883, 100.834515);
+
+        // VMES
+        AddMarker(13.613432, 100.836200);        
+
     }
 
     void AddMarker(double lat, double lon)
