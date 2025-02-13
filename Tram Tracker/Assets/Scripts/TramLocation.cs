@@ -3,7 +3,7 @@ using UnityEngine;
 public class TramLocation : MonoBehaviour
 {
     public static TramLocation Instance;
-    public string nextStation;
+    public string nextStation = "Unknown";
 
     private void Awake()
     {
@@ -20,6 +20,7 @@ public class TramLocation : MonoBehaviour
 
     public void SetNextStation(string stationName)
     {
+        Debug.Log("Next Station Set: " + stationName);
         nextStation = stationName;
     }
 }

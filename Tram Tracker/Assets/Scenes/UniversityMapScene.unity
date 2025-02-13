@@ -1289,8 +1289,54 @@ MonoBehaviour:
   - {fileID: 1662056046}
   - {fileID: 2077632669}
   - {fileID: 512890896}
-  detectionRange: 5
-  tramSpeed: 10
+--- !u!65 &49190238
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49190232}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11.3372755, y: 2.4148664, z: 4.829405}
+  m_Center: {x: -0.5548134, y: 0.7074338, z: 2.9172482}
+--- !u!54 &49190239
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49190232}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &62943112
 GameObject:
   m_ObjectHideFlags: 0
@@ -15824,6 +15870,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1232860619974942512, guid: a602c5dbf0a094ccc9a783fd480e7fd4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 49190237}
+    - targetCorrespondingSourceObject: {fileID: 1232860619974942512, guid: a602c5dbf0a094ccc9a783fd480e7fd4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 49190238}
+    - targetCorrespondingSourceObject: {fileID: 1232860619974942512, guid: a602c5dbf0a094ccc9a783fd480e7fd4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 49190239}
   m_SourcePrefab: {fileID: 100100000, guid: a602c5dbf0a094ccc9a783fd480e7fd4, type: 3}
 --- !u!1 &761092313
 GameObject:
@@ -18278,7 +18330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stationText: {fileID: 901692363}
-  arrivalTimeText: {fileID: 0}
 --- !u!1001 &904908204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31168,9 +31219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8805992247d1144caac1cca703325b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tramPosition: {x: 0, y: 0, z: 0}
   nextStation: 
-  estimatedArrivalTime: 0
 --- !u!4 &1616067834
 Transform:
   m_ObjectHideFlags: 0
@@ -32796,7 +32845,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 35.083, y: 112.838}
+  m_AnchoredPosition: {x: 35.083008, y: 112.83789}
   m_SizeDelta: {x: 860, y: 220}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1685734060
@@ -40816,7 +40865,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 15
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &2077632669 stripped
 Transform:
