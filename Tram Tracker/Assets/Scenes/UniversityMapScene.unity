@@ -10771,7 +10771,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8388569023668076309, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
       propertyPath: m_Name
-      value: tram-stop (3)
+      value: Queen of Sheba Station
       objectReference: {fileID: 0}
     - target: {fileID: 9160884289349674415, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
       propertyPath: m_LocalScale.x
@@ -10828,8 +10828,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8388569023668076309, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 512890895}
   m_SourcePrefab: {fileID: 100100000, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
+--- !u!1 &512890894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8388569023668076309, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
+  m_PrefabInstance: {fileID: 512890893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &512890895
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512890894}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 18
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &512906915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8526760113325641927, guid: 08d5bf3e7739a4ce0b5ca0eab6aab42f, type: 3}
@@ -23078,7 +23107,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8388569023668076309, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
       propertyPath: m_Name
-      value: tram-stop
+      value: MSM Station
       objectReference: {fileID: 0}
     - target: {fileID: 9160884289349674415, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
       propertyPath: m_LocalScale.x
@@ -23135,8 +23164,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8388569023668076309, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1168650201}
   m_SourcePrefab: {fileID: 100100000, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
+--- !u!1 &1168650200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8388569023668076309, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
+  m_PrefabInstance: {fileID: 1168650199}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1168650201
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168650200}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 12
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1171020257
 GameObject:
   m_ObjectHideFlags: 0
@@ -32163,7 +32221,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8388569023668076309, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
       propertyPath: m_Name
-      value: tram-stop (1)
+      value: IT Station
       objectReference: {fileID: 0}
     - target: {fileID: 9160884289349674415, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
       propertyPath: m_LocalScale.x
@@ -32220,8 +32278,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8388569023668076309, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1662056045}
   m_SourcePrefab: {fileID: 100100000, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
+--- !u!1 &1662056044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8388569023668076309, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
+  m_PrefabInstance: {fileID: 1662056043}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1662056045
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662056044}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 12
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1662856685
 GameObject:
   m_ObjectHideFlags: 0
@@ -40591,7 +40678,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8388569023668076309, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
       propertyPath: m_Name
-      value: tram-stop (2)
+      value: AU Mall Station
       objectReference: {fileID: 0}
     - target: {fileID: 9160884289349674415, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
       propertyPath: m_LocalScale.x
@@ -40648,8 +40735,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8388569023668076309, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2077632668}
   m_SourcePrefab: {fileID: 100100000, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
+--- !u!1 &2077632667 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8388569023668076309, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
+  m_PrefabInstance: {fileID: 2077632666}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &2077632668
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077632667}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2081659041
 GameObject:
   m_ObjectHideFlags: 0
@@ -42133,6 +42249,10 @@ SceneRoots:
   - {fileID: 1271061541}
   - {fileID: 437687784}
   - {fileID: 6156571805463693457}
+  - {fileID: 1168650199}
+  - {fileID: 1662056043}
+  - {fileID: 2077632666}
+  - {fileID: 512890893}
   - {fileID: 2091455280}
   - {fileID: 738081352}
   - {fileID: 1907643504}
@@ -42380,7 +42500,3 @@ SceneRoots:
   - {fileID: 1709927411}
   - {fileID: 28075523}
   - {fileID: 1274287391}
-  - {fileID: 1168650199}
-  - {fileID: 1662056043}
-  - {fileID: 2077632666}
-  - {fileID: 512890893}
