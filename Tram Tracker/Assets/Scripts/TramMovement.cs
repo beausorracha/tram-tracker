@@ -28,18 +28,21 @@ public class TramMovement : MonoBehaviour
         }
     }
 
-    private void SetNextStation()
+   private void SetNextStation()
+{
+    // Move to the next station
+    currentStationIndex++;
+
+    // If we reach the last station, loop back to the first one
+    if (currentStationIndex >= stations.Length)
     {
-        if (TramLocation.Instance != null)
-        {
-            if (currentStationIndex + 1 < stations.Length)
-            {
-                TramLocation.Instance.SetNextStation(stations[currentStationIndex + 1].name);
-            }
-            else
-            {
-                TramLocation.Instance.SetNextStation("End of Line");
-            }
-        }
+        currentStationIndex = 0; // Reset to the first station
     }
+
+    // Update the next station
+    TramLocation.Instance.SetNextStation(stations[currentStationIndex].name);
+    
+    Debug.Log("Next station: " + stations[currentStationIndex].name); // Debug check
+}
+
 }
