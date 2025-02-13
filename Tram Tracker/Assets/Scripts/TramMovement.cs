@@ -2,36 +2,36 @@ using UnityEngine;
 
 public class TramMovement : MonoBehaviour
 {
-    public Transform[] stations;
-    public float detectionRange = 10f;
-    public float tramSpeed = 10f; // Speed in units per second
+    public Transform[] stations;  // List of stations in order
+    public float detectionRange = 5f;  // Radius for detection
+    public float tramSpeed = 10f;  
 
-    private void Update()
+    private int currentStationIndex = -1;  // -1 means before the first station
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (TramLocation.Instance != null)
+        for (int i = 0; i < stations.Length; i++)
         {
-            // Update tram position in TramLocation
-            TramLocation.Instance.UpdateTramPosition(transform.position);
-        }
-
-        // Find the closest station
-        Transform nearestStation = null;
-        float shortestDistance = Mathf.Infinity;
-
-        foreach (Transform station in stations)
-        {
-            float distance = Vector3.Distance(transform.position, station.position);
-            if (distance < shortestDistance)
+            if (other.gameObject == stations[i].gameObject)
             {
-                shortestDistance = distance;
-                nearestStation = station;
+                MoveToNextStation();
+                break;
             }
         }
+    }
 
-        // Update next station if within detection range
-        if (nearestStation != null && shortestDistance <= detectionRange)
+    private void MoveToNextStation()
+    {
+        if (currentStationIndex + 1 < stations.Length)
         {
-            TramLocation.Instance.SetNextStation(nearestStation.name, nearestStation.position, tramSpeed);
+            currentStationIndex++;  
+            string nextStationName = stations[currentStationIndex].name;
+
+            // Calculate arrival time
+            float arrivalTime = Vector3.Distance(transform.position, stations[currentStationIndex].position) / tramSpeed;
+
+            // Update next station in TramLocation
+            TramLocation.Instance.SetNextStation(nextStationName, arrivalTime);
         }
     }
 }

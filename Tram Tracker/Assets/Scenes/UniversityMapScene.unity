@@ -1272,6 +1272,25 @@ MonoBehaviour:
   gpsConverter: {fileID: 1271061540}
   tram: {fileID: 49190235}
   moveSpeed: 10
+--- !u!114 &49190237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49190232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83b5171c1c6d4cb9994b459dc66a997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stations:
+  - {fileID: 1168650202}
+  - {fileID: 1662056046}
+  - {fileID: 2077632669}
+  - {fileID: 512890896}
+  detectionRange: 5
+  tramSpeed: 10
 --- !u!1 &62943112
 GameObject:
   m_ObjectHideFlags: 0
@@ -10802,6 +10821,11 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 18
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &512890896 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9160884289349674415, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
+  m_PrefabInstance: {fileID: 512890893}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &512906915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8526760113325641927, guid: 08d5bf3e7739a4ce0b5ca0eab6aab42f, type: 3}
@@ -15797,6 +15821,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1232860619974942512, guid: a602c5dbf0a094ccc9a783fd480e7fd4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 49190236}
+    - targetCorrespondingSourceObject: {fileID: 1232860619974942512, guid: a602c5dbf0a094ccc9a783fd480e7fd4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 49190237}
   m_SourcePrefab: {fileID: 100100000, guid: a602c5dbf0a094ccc9a783fd480e7fd4, type: 3}
 --- !u!1 &761092313
 GameObject:
@@ -18112,6 +18139,7 @@ GameObject:
   - component: {fileID: 901692362}
   - component: {fileID: 901692364}
   - component: {fileID: 901692363}
+  - component: {fileID: 901692365}
   m_Layer: 5
   m_Name: TramNextStation
   m_TagString: Untagged
@@ -18158,7 +18186,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: AU Mall Station
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
   m_sharedMaterial: {fileID: -1070156641545715890, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
@@ -18237,6 +18265,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901692361}
   m_CullTransparentMesh: 1
+--- !u!114 &901692365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901692361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf12eb91de3744531a77418b86f0423a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stationText: {fileID: 901692363}
+  arrivalTimeText: {fileID: 0}
 --- !u!1001 &904908204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23195,6 +23237,11 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 12
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1168650202 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9160884289349674415, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
+  m_PrefabInstance: {fileID: 1168650199}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1171020257
 GameObject:
   m_ObjectHideFlags: 0
@@ -32309,6 +32356,11 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 12
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1662056046 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9160884289349674415, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
+  m_PrefabInstance: {fileID: 1662056043}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1662856685
 GameObject:
   m_ObjectHideFlags: 0
@@ -40766,6 +40818,11 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &2077632669 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9160884289349674415, guid: 97218e8a941324ecfbee9e7248a52129, type: 3}
+  m_PrefabInstance: {fileID: 2077632666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2081659041
 GameObject:
   m_ObjectHideFlags: 0
