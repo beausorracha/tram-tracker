@@ -11,7 +11,7 @@ public class RedisManager : MonoBehaviour
 
     private string redisHost = "redis-13242.crce178.ap-east-1-1.ec2.redns.redis-cloud.com";
     private int redisPort = 13242;
-    private string redisPassword = "z1WTBRd81HGrGckawMz6oHtHNOoXAAR3"; // 🚨 Reset for security!
+    private string redisPassword = "z1WTBRd81HGrGckawMz6oHtHNOoXAAR3"; 
 
     async void Start()
     {
