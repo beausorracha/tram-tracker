@@ -1352,7 +1352,7 @@ MonoBehaviour:
   redisManager: {fileID: 1685734868}
   gpsConverter: {fileID: 1271061540}
   tram: {fileID: 49190235}
-  moveSpeed: 5
+  moveSpeed: 50
   updateInterval: 2
 --- !u!1 &62943112
 GameObject:

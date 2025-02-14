@@ -8,11 +8,11 @@ public class RealTimeTramTracker : MonoBehaviour
     public RedisManager redisManager;
     public GPSConverter gpsConverter;
     public Transform tram;
-    public float moveSpeed = 5f;
-    public float updateInterval = 2f; // Seconds between Redis fetches
+    public float moveSpeed = 10f; // Increased speed for smoother movement
+    public float updateInterval = 1f; // Update every second
 
     private Vector2 lastGPSPosition = Vector2.zero;
-    private float currentMoveSpeed;
+    private bool isMoving = false;
 
     void Start()
     {
@@ -32,13 +32,6 @@ public class RealTimeTramTracker : MonoBehaviour
             return;
         }
 
-        currentMoveSpeed = moveSpeed;
-        
-        // 🚆 Set tram to initial GPS position
-        Vector3 startPosition = gpsConverter.ConvertGPSToUnity(lastGPSPosition.x, lastGPSPosition.y);
-        tram.position = startPosition;
-        Debug.Log($"🚆 Setting Initial Tram Position: {startPosition}");
-        
         StartCoroutine(UpdateTramPosition());
     }
 
@@ -61,26 +54,27 @@ public class RealTimeTramTracker : MonoBehaviour
         if (newGPSPosition == Vector2.zero)
         {
             Debug.LogWarning("⚠️ No valid GPS data received. Keeping previous position.");
+            isMoving = false;
             yield break;
         }
 
-        Debug.Log($"📡 Received GPS Data: {newGPSPosition}");
+        Debug.Log($"📡 Received GPS Data: {newGPSPosition.x:F8}, {newGPSPosition.y:F8}");
         
-        // ✅ Move only if the GPS data has significantly changed
-        if (!ApproximatelyEqual(newGPSPosition, lastGPSPosition, 0.00001f))
+        // ✅ Move only if the GPS data has significantly changed (7 decimal precision)
+        if (!ApproximatelyEqual(newGPSPosition, lastGPSPosition, 0.0000001f))
         {
             lastGPSPosition = newGPSPosition;
-            Vector3 targetPosition = gpsConverter.ConvertGPSToUnity(newGPSPosition.x, newGPSPosition.y);
-            Debug.Log($"🎯 Converted Tram Position: {targetPosition}");
-            currentMoveSpeed = moveSpeed; // Restore movement speed when GPS updates
-            
-            // 🚆 Set the tram's position directly for testing
-            tram.position = targetPosition;
+            float latitude = (float)newGPSPosition.x;
+            float longitude = (float)newGPSPosition.y;
+            Vector3 targetPosition = gpsConverter.ConvertGPSToUnity(latitude, longitude);
+            Debug.Log($"🎯 Moving Tram to: {targetPosition.x:F8}, {targetPosition.y:F8}");
+            isMoving = true;
+            StartCoroutine(SmoothMoveTram(targetPosition));
         }
         else
         {
-            Debug.Log("🚏 GPS data is unchanged. Tram remains in place.");
-            currentMoveSpeed = 0f; // Stop movement when GPS is unchanged
+            Debug.Log("🚏 GPS data is unchanged. Tram stops moving.");
+            isMoving = false;
         }
     }
 
@@ -88,10 +82,10 @@ public class RealTimeTramTracker : MonoBehaviour
     {
         Vector3 startPosition = tram.position;
         float totalDistance = Vector3.Distance(startPosition, targetPosition);
-        float journeyTime = totalDistance / currentMoveSpeed;
+        float journeyTime = totalDistance / moveSpeed;
         float journey = 0f;
 
-        while (journey < 1f && currentMoveSpeed > 0f)
+        while (journey < 1f && isMoving)
         {
             journey += Time.deltaTime / journeyTime;
             tram.position = Vector3.Lerp(startPosition, targetPosition, journey);
