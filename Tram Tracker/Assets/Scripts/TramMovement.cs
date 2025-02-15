@@ -9,20 +9,20 @@ public class TramMovement : MonoBehaviour
     {
         if (TramLocation.Instance == null)
         {
-            Debug.LogError("TramLocation Instance not found! Make sure TramLocation exists in the scene.");
+            //Debug.LogError("TramLocation Instance not found! Make sure TramLocation exists in the scene.");
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Tram entered trigger: " + other.name);
+        //Debug.Log("Tram entered trigger: " + other.name);
 
         for (int i = 0; i < stations.Length; i++)
         {
             if (other.transform == stations[i])
             {
                 currentStationIndex = i;
-                Debug.Log("Tram reached: " + stations[i].name);
+                //Debug.Log("Tram reached: " + stations[i].name);
                 SetNextStation();
             }
         }
@@ -42,7 +42,7 @@ public class TramMovement : MonoBehaviour
     // Update the next station
     TramLocation.Instance.SetNextStation(stations[currentStationIndex].name);
     
-    Debug.Log("Next station: " + stations[currentStationIndex].name); // Debug check
+    //Debug.Log("Next station: " + stations[currentStationIndex].name); // Debug check
 }
 
 }
