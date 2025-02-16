@@ -888,7 +888,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 570908926}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1554015987}
+        m_TargetAssemblyTypeName: NotificationOpener, Assembly-CSharp
+        m_MethodName: SelectStation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MSM Building
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &570908926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1211,7 +1223,6 @@ GameObject:
   - component: {fileID: 909231354}
   - component: {fileID: 909231353}
   - component: {fileID: 909231352}
-  - component: {fileID: 909231355}
   m_Layer: 5
   m_Name: ConfirmButton
   m_TagString: Untagged
@@ -1283,7 +1294,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 909231355}
+      - m_Target: {fileID: 1554015987}
         m_TargetAssemblyTypeName: NotificationOpener, Assembly-CSharp
         m_MethodName: OpenNotification
         m_Mode: 1
@@ -1333,19 +1344,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909231350}
   m_CullTransparentMesh: 1
---- !u!114 &909231355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909231350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efaa7f309d5c24cf383cff0036fbc30b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Panel: {fileID: 2084212687}
 --- !u!1 &1119430183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,7 +1690,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1447137564}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1554015987}
+        m_TargetAssemblyTypeName: NotificationOpener, Assembly-CSharp
+        m_MethodName: SelectStation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: IT Building
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1447137564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1743,7 +1753,6 @@ GameObject:
   - component: {fileID: 1551556167}
   - component: {fileID: 1551556166}
   - component: {fileID: 1551556165}
-  - component: {fileID: 1551556168}
   m_Layer: 5
   m_Name: OK Button
   m_TagString: Untagged
@@ -1815,7 +1824,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1551556168}
+      - m_Target: {fileID: 1554015987}
         m_TargetAssemblyTypeName: NotificationOpener, Assembly-CSharp
         m_MethodName: CloseNotification
         m_Mode: 1
@@ -1865,19 +1874,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551556163}
   m_CullTransparentMesh: 1
---- !u!114 &1551556168
+--- !u!1 &1554015986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1554015988}
+  - component: {fileID: 1554015987}
+  m_Layer: 0
+  m_Name: Station Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1554015987
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551556163}
+  m_GameObject: {fileID: 1554015986}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efaa7f309d5c24cf383cff0036fbc30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Panel: {fileID: 2084212687}
+  confirmButton: {fileID: 909231352}
+--- !u!4 &1554015988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554015986}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 653.83044, y: 1344.1, z: -10.949463}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1561345849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2353,7 +2395,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1686048610}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1554015987}
+        m_TargetAssemblyTypeName: NotificationOpener, Assembly-CSharp
+        m_MethodName: SelectStation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: AU Mall
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1686048610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2889,7 +2943,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1975660785}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1554015987}
+        m_TargetAssemblyTypeName: NotificationOpener, Assembly-CSharp
+        m_MethodName: SelectStation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Queen of Sheba
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1975660785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3220,3 +3286,4 @@ SceneRoots:
   - {fileID: 1622676818}
   - {fileID: 1977892553}
   - {fileID: 1783224659}
+  - {fileID: 1554015988}
