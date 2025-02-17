@@ -2,7 +2,10 @@ using System;
 using UnityEngine;
 using StackExchange.Redis;
 using System.Threading.Tasks;
-using Newtonsoft.Json;  // ✅ Use Newtonsoft.Json for flexible JSON parsing
+using Newtonsoft.Json;  // ✅ JSON Parsing
+using System.Collections; // ✅ Fix for IEnumerator
+using UnityEngine.UI;  // ✅ UI Warning Text Support
+using TMPro; 
 
 public class RedisManager : MonoBehaviour
 {
@@ -14,13 +17,16 @@ public class RedisManager : MonoBehaviour
     private int redisPort = 13242;
     private string redisPassword = "z1WTBRd81HGrGckawMz6oHtHNOoXAAR3"; 
 
+    public TextMeshProUGUI warningText; // Use TextMeshPro for better rendering
+
+
     async void Start()
     {
         await ConnectToRedis();
         if (isConnected)
         {
-            Debug.Log("✅ Redis Connected Successfully!");
-            await FetchGPSData(); // Fetch GPS data immediately after connection
+            //Debug.Log("✅ Redis Connected Successfully!");
+            StartCoroutine(UpdateGPSDataLoop());  // ✅ Start auto-fetching GPS data
         }
     }
 
@@ -36,7 +42,18 @@ public class RedisManager : MonoBehaviour
         catch (Exception ex)
         {
             isConnected = false;
-            Debug.LogError($"❌ Redis Connection Failed: {ex.Message}");
+            ShowWarning("❌ Redis Connection Failed! Check Internet.");
+            //Debug.LogError($"❌ Redis Connection Failed: {ex.Message}");
+        }
+    }
+
+    private IEnumerator UpdateGPSDataLoop()
+    {
+        while (true)
+        {
+            yield return FetchGPSData(); // ✅ Properly waits without blocking Unity
+            //  // ✅ Wait for result (avoids implicit conversion issue)
+            yield return new WaitForSeconds(1.0f);
         }
     }
 
@@ -44,29 +61,29 @@ public class RedisManager : MonoBehaviour
     {
         if (!isConnected || db == null)
         {
-            Debug.LogError("❌ Redis not connected. Attempting reconnection...");
+            ShowWarning("⚠️ Redis not connected. Reconnecting...");
             await ConnectToRedis(); // 🔥 Try reconnecting
             if (!isConnected) return Vector2.zero;
         }
 
-        Debug.Log("🔍 Fetching GPS data from Redis...");
+        //Debug.Log("🔍 Fetching GPS data from Redis...");
 
         string gpsDataJson = await db.StringGetAsync("gps:tram_1");
 
         if (string.IsNullOrEmpty(gpsDataJson))
         {
-            Debug.LogWarning("⚠️ No GPS data found in Redis!");
+            ShowWarning("⚠️ No GPS data found!");
             return Vector2.zero;
         }
 
         // 🔹 Clean up double-encoded JSON if necessary
         if (gpsDataJson.StartsWith("\"") && gpsDataJson.EndsWith("\""))
         {
-            Debug.Log("🔄 Detected double-encoded JSON, fixing it...");
+            //Debug.Log("🔄 Detected double-encoded JSON, fixing it...");
             gpsDataJson = gpsDataJson.Trim('"').Replace("\\\"", "\"");
         }
 
-        Debug.Log($"🟢 CLEANED JSON: {gpsDataJson}");
+        //Debug.Log($"🟢 CLEANED JSON: {gpsDataJson}");
 
         GPSData gps;
         try
@@ -75,26 +92,44 @@ public class RedisManager : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.LogError($"❌ JSON Parsing Failed: {e.Message}");
+            ShowWarning("⚠️ GPS data error.");
+            //Debug.LogError($"❌ JSON Parsing Failed: {e.Message}");
             return Vector2.zero;
         }
 
-        if (gps == null)
+        if (gps == null || gps.latitude == null || gps.longitude == null)
         {
-            Debug.LogError("❌ GPS data is null after parsing.");
+            ShowWarning("⚠️ Tram is not receiving fixed GPS data.");
             return Vector2.zero;
         }
 
-        Vector2 position = new Vector2((float)gps.latitude, (float)gps.longitude);
-        Debug.Log($"📍 GPS Position: {position}");
+        HideWarning(); // ✅ GPS is valid, hide warning
+        //Debug.Log($"📍 GPS Position: {gps.latitude}, {gps.longitude}");
 
-        return position;
+        return new Vector2((float)gps.latitude, (float)gps.longitude);
+    }
+
+    void ShowWarning(string message)
+    {
+        if (warningText != null)
+        {
+            warningText.text = message;
+            warningText.enabled = true;
+        }
+    }
+
+    void HideWarning()
+    {
+        if (warningText != null)
+        {
+            warningText.enabled = false;
+        }
     }
 
     [Serializable]
     private class GPSData
     {
-        public double latitude;
-        public double longitude;
+        public double? latitude; // ✅ Allow nullable values
+        public double? longitude;
     }
 }
