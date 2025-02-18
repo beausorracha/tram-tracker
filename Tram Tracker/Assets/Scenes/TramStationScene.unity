@@ -178,8 +178,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: IT Building
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
+  m_sharedMaterial: {fileID: -1070156641545715890, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -394,8 +394,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Confirm
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
+  m_sharedMaterial: {fileID: -1070156641545715890, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -596,8 +596,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75a83bc59f5c54778bca09abdf40135f, type: 2}
+  m_sharedMaterial: {fileID: 7628506131803892877, guid: 75a83bc59f5c54778bca09abdf40135f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -998,8 +998,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Queen of Sheba
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
+  m_sharedMaterial: {fileID: -1070156641545715890, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1134,8 +1134,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: AU Mall
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
+  m_sharedMaterial: {fileID: -1070156641545715890, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1467,8 +1467,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: MSM Building
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
+  m_sharedMaterial: {fileID: -1070156641545715890, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1979,8 +1979,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Select your station, we\u2019ll alert you when a tram is nearby."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
+  m_sharedMaterial: {fileID: -1070156641545715890, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
