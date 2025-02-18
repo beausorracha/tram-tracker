@@ -16361,9 +16361,9 @@ RectTransform:
   - {fileID: 344133837}
   m_Father: {fileID: 1641043519}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -200}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -250, y: -360}
   m_SizeDelta: {x: 500, y: 160}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &761092315
@@ -24060,7 +24060,7 @@ GameObject:
   - component: {fileID: 1183322203}
   - component: {fileID: 1183322202}
   m_Layer: 5
-  m_Name: TramStationText
+  m_Name: SettingsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24105,7 +24105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tram Station
+  m_text: 'Settings
 
 '
   m_isRightToLeft: 0
@@ -31867,7 +31867,7 @@ GameObject:
   - component: {fileID: 1641043521}
   - component: {fileID: 1641043520}
   m_Layer: 5
-  m_Name: TramStationButton
+  m_Name: SettingsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31947,7 +31947,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TramStationScene
+          m_StringArgument: SettingsScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1641043521
@@ -33361,7 +33361,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1685734061}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1907643505}
+        m_TargetAssemblyTypeName: SceneManagerScript, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TramStationScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1685734061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36335,7 +36347,7 @@ GameObject:
   - component: {fileID: 1842949692}
   - component: {fileID: 1842949691}
   m_Layer: 5
-  m_Name: TramStationLogo
+  m_Name: SettingsLogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36381,7 +36393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 405c6b9cff633422d8ad6a0fb3f1746f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: be8d47c8ac939488cb86f9558f0c4e74, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
