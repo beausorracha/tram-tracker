@@ -7263,7 +7263,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -8585,7 +8585,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392692255}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f83b5171c1c6d4cb9994b459dc66a997, type: 3}
   m_Name: 
@@ -8630,7 +8630,7 @@ MonoBehaviour:
   redisManager: {fileID: 1685734868}
   gpsConverter: {fileID: 1271061540}
   tram: {fileID: 392692261}
-  moveSpeed: 10
+  moveSpeed: 20
   updateInterval: 2
 --- !u!1001 &398080692
 PrefabInstance:
