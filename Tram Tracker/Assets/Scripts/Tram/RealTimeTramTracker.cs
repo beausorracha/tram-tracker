@@ -5,14 +5,15 @@ using UnityEngine;
 public class RealTimeTramTracker : MonoBehaviour
 {
     [Header("Tram Settings")]
-    public RedisManager redisManager; // Manages connection to Redis server
-    public GPSConverter gpsConverter; // Converts GPS coordinates to Unity world space
-    public Transform tram; // The tram object to move
+    public RedisManager redisManager; // Redis connection manager
+    public GPSConverter gpsConverter; // GPS-to-Unity coordinate converter
+    public Transform tram; // Tram object
     public float moveSpeed = 10f; // Speed of tram movement
-    public float updateInterval = 2f; // Interval to fetch new GPS data
+    public float updateInterval = 2f; // Interval to fetch GPS data
+    public float minMoveThreshold = 0.00005f; // ✅ Prevents micro-movement due to GPS noise
 
-    private Vector2 lastGPSPosition = Vector2.zero; // Stores the last GPS position
-    private bool isMoving = false; // Tracks if the tram is currently moving
+    private Vector2 lastGPSPosition = Vector2.zero;
+    private Coroutine moveCoroutine; // ✅ Stores movement coroutine for better control
 
     void Start()
     {
@@ -60,6 +61,7 @@ public class RealTimeTramTracker : MonoBehaviour
 
     private IEnumerator FetchAndMoveTram()
     {
+        // Fetch GPS Data Asynchronously
         Task<Vector2> fetchTask = redisManager.FetchGPSData();
         yield return new WaitUntil(() => fetchTask.IsCompleted);
 
@@ -72,20 +74,27 @@ public class RealTimeTramTracker : MonoBehaviour
         Vector2 newGPSPosition = fetchTask.Result;
         if (newGPSPosition == Vector2.zero)
         {
-            isMoving = false;
+            Debug.LogWarning("⚠️ No valid GPS position received.");
             yield break;
         }
 
-        if (!ApproximatelyEqual(newGPSPosition, lastGPSPosition, 0.0001f))
+        // ✅ Prevent tram from stopping due to minor GPS fluctuations
+        if (!HasSignificantMovement(newGPSPosition, lastGPSPosition, minMoveThreshold))
         {
-            lastGPSPosition = newGPSPosition;
-            isMoving = true;
-            StartCoroutine(SmoothMoveTram(gpsConverter.ConvertGPSToUnity(newGPSPosition.x, newGPSPosition.y)));
+            Debug.Log("🚫 Small GPS change detected. Skipping update.");
+            yield break;
         }
-        else
-        {
-            isMoving = false;
-        }
+
+        lastGPSPosition = newGPSPosition;
+
+        // ✅ Convert GPS coordinates to Unity position
+        Vector3 targetPosition = gpsConverter.ConvertGPSToUnity(newGPSPosition.x, newGPSPosition.y);
+
+        // ✅ Stop any existing movement coroutine before starting a new one
+        if (moveCoroutine != null)
+            StopCoroutine(moveCoroutine);
+
+        moveCoroutine = StartCoroutine(SmoothMoveTram(targetPosition));
     }
 
     private IEnumerator SmoothMoveTram(Vector3 targetPosition)
@@ -95,29 +104,29 @@ public class RealTimeTramTracker : MonoBehaviour
         float journeyTime = totalDistance / moveSpeed;
         float journey = 0f;
 
-        while (journey < 1f && isMoving)
+        // ✅ Ease-in and ease-out movement for smooth transitions
+        while (journey < 1f)
         {
             journey += Time.deltaTime / journeyTime;
-            tram.position = Vector3.Lerp(startPosition, targetPosition, journey);
+            float easeFactor = Mathf.SmoothStep(0f, 1f, journey); // 🚀 Smooth transition
+            tram.position = Vector3.Lerp(startPosition, targetPosition, easeFactor);
 
-            // Correct rotation fix to face the movement direction
+            // ✅ Rotate tram towards movement direction
             Vector3 direction = (targetPosition - tram.position).normalized;
             if (direction != Vector3.zero)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up) * Quaternion.Euler(0, -90, 0);
                 tram.rotation = Quaternion.Slerp(tram.rotation, targetRotation, Time.deltaTime * 5f);
-
             }
 
             yield return null;
         }
 
         tram.position = targetPosition;
-        isMoving = false;
     }
 
-    private bool ApproximatelyEqual(Vector2 a, Vector2 b, float tolerance = 0.0001f)
+    private bool HasSignificantMovement(Vector2 newPos, Vector2 oldPos, float threshold)
     {
-        return Mathf.Abs(a.x - b.x) < tolerance && Mathf.Abs(a.y - b.y) < tolerance;
+        return Mathf.Abs(newPos.x - oldPos.x) > threshold || Mathf.Abs(newPos.y - oldPos.y) > threshold;
     }
 }
