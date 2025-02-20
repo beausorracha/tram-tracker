@@ -1,16 +1,15 @@
-
 // using UnityEngine;
 // using Unity.Cinemachine;
 
 // public class MapController : MonoBehaviour
 // {
 //     public CinemachineCamera mapCam; // Reference to MapCam
-//     public float zoomSpeed = 0.5f; // Speed of zooming
+//     public float zoomSpeed = 0.05f; // Speed of zooming
 //     public float minZoom = 0.0f; // Minimum zoom level
 //     public float maxZoom = 10.0f; // Maximum zoom level
 
-//     private Vector3 lastTouchPosition;
-//     private bool isDragging = false;
+//     private Vector3 lastTouchPosition; // To store the last touch position
+//     private bool isDragging = false; // To track if the user is dragging
 
 //     private void Update()
 //     {
@@ -83,7 +82,8 @@ public class MapController : MonoBehaviour
     public CinemachineCamera mapCam; // Reference to MapCam
     public float zoomSpeed = 0.05f; // Speed of zooming
     public float minZoom = 0.0f; // Minimum zoom level
-    public float maxZoom = 10.0f; // Maximum zoom level
+    public float maxZoom = 100.0f; // Maximum zoom level
+    public float dragSpeed = 1.0f; // Speed of dragging
 
     private Vector3 lastTouchPosition; // To store the last touch position
     private bool isDragging = false; // To track if the user is dragging
@@ -114,10 +114,11 @@ public class MapController : MonoBehaviour
                 // Calculate the movement delta
                 Vector3 deltaPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, Camera.main.nearClipPlane)) 
                                         - Camera.main.ScreenToWorldPoint(new Vector3(lastTouchPosition.x, lastTouchPosition.y, Camera.main.nearClipPlane));
+
                 lastTouchPosition = touch.position;
 
                 // Move the camera based on the input
-                mapCam.transform.Translate(-deltaPosition, Space.World); // Negate to move in the correct direction
+                mapCam.transform.Translate(-deltaPosition * dragSpeed, Space.World); // Apply drag speed
             }
             else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
             {
@@ -125,8 +126,7 @@ public class MapController : MonoBehaviour
             }
         }
     }
-
-    private void HandleZoom()
+   private void HandleZoom()
     {
         if (Input.touchCount == 2)
         {
@@ -135,16 +135,18 @@ public class MapController : MonoBehaviour
 
             if (touch0.phase == TouchPhase.Moved || touch1.phase == TouchPhase.Moved)
             {
-                // Calculate the distance between the touches
+                // Calculate distances between touches
                 float previousDistance = Vector2.Distance(touch0.position - touch0.deltaPosition, touch1.position - touch1.deltaPosition);
                 float currentDistance = Vector2.Distance(touch0.position, touch1.position);
-                float zoomDelta = previousDistance - currentDistance;
+                float zoomDelta = currentDistance - previousDistance;
 
-                // Zoom in on pinch out (i.e., zoomDelta > 0 reduces height)
-                Vector3 newPosition = mapCam.transform.position - mapCam.transform.forward * zoomDelta * zoomSpeed;
-                float newHeight = Mathf.Clamp(newPosition.y, minZoom, maxZoom); // Limit height for zoom
+               // Adjust the camera's position based on zoomDelta
+               Vector3 newPosition = mapCam.transform.position + mapCam.transform.forward * zoomDelta * zoomSpeed;
 
-                // Set the new position
+               // Clamp the height to min/max zoom levels
+               float newHeight = Mathf.Clamp(newPosition.y, minZoom, maxZoom);
+
+               // Set the new position
                 mapCam.transform.position = new Vector3(newPosition.x, newHeight, newPosition.z);
             }
         }
