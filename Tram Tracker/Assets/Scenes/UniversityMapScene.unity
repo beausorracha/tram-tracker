@@ -6917,7 +6917,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 0}
+    TrackingTarget: {fileID: 532261053}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -18992,10 +18992,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5093ceb603de4e22bca6197bffd209d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapCam: {fileID: 315684666}
-  zoomSpeed: 0.05
-  minZoom: 8
-  maxZoom: 50
+  MapCam: {fileID: 0}
+  zoomSpeed: 0.5
+  minZoom: 200
+  maxZoom: 975
 --- !u!4 &873020242
 Transform:
   m_ObjectHideFlags: 0
