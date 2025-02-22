@@ -113,8 +113,8 @@ public class MapController : MonoBehaviour
     private Plane plane; // Track the plane for raycasting
 
     public float zoomSpeed = 0.002f; // Adjusted zoom speed for more control
-    public float minZoom = 2.0f; // Minimum zoom level
-    public float maxZoom = 10.0f; // Maximum zoom level
+    public float minZoom = 5.0f; // Minimum zoom level
+    public float maxZoom = 1000.0f; // Maximum zoom level
 
     private void Awake()
     {
