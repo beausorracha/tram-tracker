@@ -5,38 +5,89 @@ using TMPro;
 public class LogoutManager : MonoBehaviour
 {
     public Button logoutButton; // ✅ Logout button in settings page
+    public Button okButton; // ✅ OK button in modal
+    public Button cancelButton; // ✅ Cancel button in modal
+    public GameObject modalPanel; // ✅ Modal panel
     public TextMeshProUGUI messageText;
 
     void Start()
     {
         if (logoutButton != null)
         {
-            logoutButton.onClick.AddListener(ConfirmLogout);
+            logoutButton.onClick.AddListener(ShowLogoutConfirmation);
         }
         else
         {
             Debug.LogError("❌ Logout button not assigned in Unity Inspector.");
         }
+        if (okButton == null)
+        {
+        okButton = GameObject.Find("OK Button").GetComponent<Button>();
+        }
+    
+        if (cancelButton == null)
+        {
+            cancelButton = GameObject.Find("CANCEL Button").GetComponent<Button>();
+        }
+        
+        if (modalPanel == null)
+        {
+            modalPanel = GameObject.Find("ConfirmSignOut Panel");
+        }
+
+        okButton.onClick.AddListener(Logout);
+        cancelButton.onClick.AddListener(CloseModal); 
     }
 
     // ✅ Show Logout Confirmation Dialog
-    public void ConfirmLogout()
+    public void ShowLogoutConfirmation()
     {
         Debug.Log("⚠️ Asking for logout confirmation...");
-        messageText.text = "Confirm to Sign Out? (OK / Cancel)";
+        // messageText.text = "Confirm to Sign Out? (OK / Cancel)";
 
         // ✅ Call Logout when OK is clicked
-        Invoke("Logout", 2f); // Simulates a confirmation delay before logging out
+        modalPanel.SetActive(true);
+    }
+
+    public void CloseModal()
+    {
+        Debug.Log("❌ Logout canceled. Closing modal.");
+        modalPanel.SetActive(false);
+    }
+
+        private void ConfirmLogout()
+    {
+        Debug.Log("✅ User confirmed logout. Logging out in 2 seconds...");
+        modalPanel.SetActive(false); // Hide the modal before the scene change
+        Invoke("Logout", 2f); // Delay logout by 2 seconds
     }
 
     // ✅ Logout Function
     private void Logout()
     {
-        Debug.Log("✅ User confirmed logout. Logging out...");
         PlayerPrefs.SetInt("IsLoggedIn", 0); // Remove login flag
         PlayerPrefs.Save();
 
         // ✅ Redirect to OpeningScene (Login Page)
         UnityEngine.SceneManagement.SceneManager.LoadScene("OpeningScene");
+    }
+
+    // ✅ Remove Listeners Function
+    private void OnDestroy()
+    {
+        if (logoutButton != null)
+        {
+            logoutButton.onClick.RemoveListener(ShowLogoutConfirmation);
+        }
+        
+        if (okButton != null)
+        {
+            okButton.onClick.RemoveListener(ConfirmLogout);
+        }
+        
+        if (cancelButton != null)
+        {
+            cancelButton.onClick.RemoveListener(CloseModal);
+        }
     }
 }
