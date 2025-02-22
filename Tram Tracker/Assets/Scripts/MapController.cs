@@ -8,9 +8,9 @@ public class MapController : MonoBehaviour
     public CinemachineCamera MapCam; // Reference to CinemachineCamera
     private Plane plane; // Track the plane for raycasting
 
-    public float zoomSpeed = 0.002f; // Adjusted zoom speed for more control
-    public float minZoom = 4.0f; // Minimum zoom level
-    public float maxZoom = 10.0f; // Maximum zoom level
+    public float zoomSpeed = 0.2f; // Adjusted zoom speed for more control
+    public float minZoom = 500f; // Minimum zoom level (camera height)
+    public float maxZoom = 2000f; // Maximum zoom level (camera height)
 
     private void Awake()
     {
@@ -20,6 +20,10 @@ public class MapController : MonoBehaviour
 
     private void Start()
     {
+        // Set minZoom and maxZoom based on your map's requirements
+        minZoom = 200f; // Minimum Y position (fully zoomed in)
+        maxZoom = 975f; // Maximum Y position (fully zoomed out)
+
         // Create and setup the plane
         Vector3 normal = Vector3.up; // Assuming the map is flat on the Y plane
         plane = new Plane(normal, transform.position);
@@ -55,30 +59,80 @@ public class MapController : MonoBehaviour
         }
     }
 
+    // private void HandlingPinching() 
+    // {
+    //     Touch touch0 = Input.GetTouch(0);
+    //     Touch touch1 = Input.GetTouch(1);
+
+    //     // Get the previous and current touch positions for both fingers
+    //     Vector2 touch0PrevPos = touch0.position - touch0.deltaPosition;
+    //     Vector2 touch1PrevPos = touch1.position - touch1.deltaPosition;
+
+    //     // Calculate pinch distance changes
+    //     float previousDistance = Vector2.Distance(touch0PrevPos, touch1PrevPos);
+    //     float currentDistance = Vector2.Distance(touch0.position, touch1.position);
+
+    //     // Calculate zoom factor
+    //     float zoomDelta = previousDistance - currentDistance;
+    //     float zoomAmount = zoomDelta * zoomSpeed; // Adjust sensitivity
+
+    //     // Find the midpoint between touches
+    //     Vector2 pinchCenter = (touch0.position + touch1.position) / 2;
+    //     Ray ray = Camera.main.ScreenPointToRay(pinchCenter);
+    
+    //     if (plane.Raycast(ray, out float enter))
+    //     {
+    //         Vector3 touchCenterInWorld = ray.GetPoint(enter);
+
+    //         // Calculate the new camera height based on zoom
+    //         float newHeight = MapCam.transform.position.y + zoomAmount;
+
+    //         // Clamp the new height within the min and max zoom range
+    //         newHeight = Mathf.Clamp(newHeight, minZoom, maxZoom);
+
+    //         // Calculate the direction to zoom towards (from camera to touch point)
+    //         Vector3 direction = (touchCenterInWorld - MapCam.transform.position).normalized;
+
+    //         // Adjust the camera's position based on the new height
+    //         MapCam.transform.position = touchCenterInWorld - direction * newHeight;
+
+    //         // Debug the camera's Y position
+    //         Debug.Log("Camera Y Position: " + MapCam.transform.position.y);
+    //     }
+    // }
+
     private void HandlingPinching() 
     {
         Touch touch0 = Input.GetTouch(0);
         Touch touch1 = Input.GetTouch(1);
 
-        // Previous positions for the touches
+        // Get the previous and current touch positions for both fingers
         Vector2 touch0PrevPos = touch0.position - touch0.deltaPosition;
         Vector2 touch1PrevPos = touch1.position - touch1.deltaPosition;
 
-        // Calculate the distances between the two touches
+        // Calculate pinch distance changes
         float previousDistance = Vector2.Distance(touch0PrevPos, touch1PrevPos);
         float currentDistance = Vector2.Distance(touch0.position, touch1.position);
 
         // Calculate zoom factor
-        float zoomDelta = previousDistance - currentDistance;
+        float zoomDelta = currentDistance - previousDistance; // Fix: Reverse the subtraction
+        float zoomAmount = zoomDelta * zoomSpeed; // Adjust sensitivity
 
-        // Zooming logic with adjustment for vertical orientation
-        Vector3 newPosition = MapCam.transform.position + MapCam.transform.forward * zoomDelta * zoomSpeed;
+        // Calculate the new camera height based on zoom
+        float newHeight = MapCam.transform.position.y - zoomAmount; // Subtract zoomAmount to move up/down correctly
 
-        // Clamp to min/max zoom levels
-        float newHeight = Mathf.Clamp(newPosition.y, minZoom, maxZoom); 
+        // Clamp the new height within the min and max zoom range
+        newHeight = Mathf.Clamp(newHeight, minZoom, maxZoom);
 
-        // Set the new camera position
-        MapCam.transform.position = new Vector3(newPosition.x, newHeight, newPosition.z); 
+        // Adjust the camera's Y position
+        MapCam.transform.position = new Vector3(
+            MapCam.transform.position.x,
+            newHeight,
+            MapCam.transform.position.z
+        );
+
+        // Debug the camera's Y position
+        Debug.Log("Camera Y Position: " + MapCam.transform.position.y);
     }
 
     protected Vector3 GetPlanePositionDelta(Touch touch) 
@@ -97,5 +151,5 @@ public class MapController : MonoBehaviour
 
         return Vector3.zero; // Return zero if rays do not hit the plane
     }
-}
 #endif
+}
