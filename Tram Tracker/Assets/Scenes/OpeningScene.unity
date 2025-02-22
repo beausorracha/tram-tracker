@@ -1122,6 +1122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   signInWithMicrosoftButton: {fileID: 1167077567}
   messageText: {fileID: 1910740832}
+  testBrowserButton: {fileID: 1167077567}
 --- !u!1 &1290155169
 GameObject:
   m_ObjectHideFlags: 0
