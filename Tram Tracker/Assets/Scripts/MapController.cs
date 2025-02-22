@@ -9,8 +9,10 @@ public class MapController : MonoBehaviour
     private Plane plane; // Track the plane for raycasting
 
     public float zoomSpeed = 0.5f; // Adjusted zoom speed for more control
-    public float minZoom; // Minimum zoom level (camera height)
-    public float maxZoom; // Maximum zoom level (camera height)
+    public float minZoom = 200f; // Minimum zoom level (camera height)
+    public float maxZoom = 975f; // Maximum zoom level (camera height)
+
+    public float draggingSpeed = 1.5f; // Control the speed of dragging
 
     private void Awake()
     {
@@ -20,10 +22,6 @@ public class MapController : MonoBehaviour
 
     private void Start()
     {
-        // Set minZoom and maxZoom based on your map's requirements
-        minZoom = 200f; // Minimum Y position (fully zoomed in)
-        maxZoom = 975f; // Maximum Y position (fully zoomed out)
-
         // Create and setup the plane
         Vector3 normal = Vector3.up; // Assuming the map is flat on the Y plane
         plane = new Plane(normal, transform.position);
@@ -53,6 +51,9 @@ public class MapController : MonoBehaviour
             Vector3 delta = GetPlanePositionDelta(touch);
             if (delta != Vector3.zero)
             {
+                // Scale the delta by the dragging speed
+                delta *= draggingSpeed;
+
                 // Move the camera based on user input
                 MapCam.transform.Translate(delta, Space.World); // Move in the correct direction
             }
