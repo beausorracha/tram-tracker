@@ -1,154 +1,205 @@
+
 // using UnityEngine;
 // using Unity.Cinemachine;
 
 // public class MapController : MonoBehaviour
 // {
-//     public CinemachineCamera mapCam; // Reference to MapCam
-//     public float zoomSpeed = 0.05f; // Speed of zooming
-//     public float minZoom = 0.0f; // Minimum zoom level
+// #if UNITY_IOS || UNITY_ANDROID
+//     public CinemachineCamera MapCam; // Reference to CinemachineCamera
+//     private Plane plane; // Track the plane for raycasting
+//     public float zoomSpeed = 0.5f; // Speed of zooming
+//     public float minZoom = 2.0f; // Minimum zoom level
 //     public float maxZoom = 10.0f; // Maximum zoom level
 
-//     private Vector3 lastTouchPosition; // To store the last touch position
-//     private bool isDragging = false; // To track if the user is dragging
+//     private void Awake()
+//     {
+//         if (MapCam == null) 
+//             MapCam = FindObjectOfType<CinemachineCamera>(); // Find if MapCam is not assigned
+//     }
+
+//     private void Start()
+//     {
+//         // Create and setup the plane
+//         Vector3 normal = Vector3.up; // Assuming the map is flat on the Y plane
+//         plane = new Plane(normal, transform.position);
+//     }
 
 //     private void Update()
 //     {
-//         // Handle dragging
-//         HandleDragging();
+//         // Handle dragging for scrolling
+//         if (Input.touchCount >= 1) 
+//         {
+//             HandleDragging();
+//         }
 
-//         // Handle zooming with pinch gestures
-//         HandleZoom();
+//         if (Input.touchCount >= 2) 
+//         {
+//             HandlingPinching();
+//         }
 //     }
 
 //     private void HandleDragging()
 //     {
-//         if (Input.touchCount == 1) // Ensure there's one touch
+//         Touch touch = Input.GetTouch(0);
+    
+//         // Only move on touch if finger is down or moved
+//         if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved)
 //         {
-//             Touch touch = Input.GetTouch(0);
-
-//             if (touch.phase == TouchPhase.Began)
+//             Vector3 delta = GetPlanePositionDelta(touch);
+//             if (delta != Vector3.zero)
 //             {
-//                 // Record the initial position
-//                 lastTouchPosition = touch.position;
-//                 isDragging = true; // Set dragging state
-//             }
-//             else if (touch.phase == TouchPhase.Moved && isDragging)
-//             {
-//                 // Calculate the movement delta
-//                 Vector3 deltaPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, Camera.main.nearClipPlane)) 
-//                                         - Camera.main.ScreenToWorldPoint(new Vector3(lastTouchPosition.x, lastTouchPosition.y, Camera.main.nearClipPlane));
-//                 lastTouchPosition = touch.position;
-
-//                 // Move the camera based on the input
-//                 mapCam.transform.Translate(-deltaPosition, Space.World); // Negate to move in the correct direction
-//             }
-//             else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
-//             {
-//                 isDragging = false; // Reset dragging state
+//                 // Move the camera based on user input
+//                 MapCam.transform.Translate(delta, Space.World); // Remove the negative sign
 //             }
 //         }
 //     }
 
-//     private void HandleZoom()
+//     private void HandlingPinching() 
 //     {
-//         if (Input.touchCount == 2)
+//         Touch touch0 = Input.GetTouch(0);
+//         Touch touch1 = Input.GetTouch(1);
+
+//         // Get the current and previous touch positions
+//         Vector2 touch0PrevPos = touch0.position - touch0.deltaPosition;
+//         Vector2 touch1PrevPos = touch1.position - touch1.deltaPosition;
+
+//         // Calculate the distance between the two touches
+//         float previousDistance = Vector2.Distance(touch0PrevPos, touch1PrevPos);
+//         float currentDistance = Vector2.Distance(touch0.position, touch1.position);
+
+//         // Calculate the zoom factor
+//         float zoomDelta = previousDistance - currentDistance; // Positive if zooming in, negative if zooming out
+
+//         // Calculate how much to adjust the camera
+//         float zoomAmount = zoomDelta * 0.01f; // Adjust sensitivity here (scale as appropriate)
+
+//         // Move the camera based on the amount to zoom
+//         Vector3 newPosition = MapCam.transform.position - MapCam.transform.forward * zoomAmount;
+
+//         // Optional: Clamp the camera position if necessary
+//         float newHeight = Mathf.Clamp(newPosition.y, minZoom, maxZoom);
+
+//         // Set the new camera position
+//         MapCam.transform.position = new Vector3(newPosition.x, newHeight, newPosition.z); 
+//     }
+
+//     protected Vector3 GetPlanePositionDelta(Touch touch) 
+//     {
+//         // Delta requires two raycasts for the touch movements
+//         if (touch.phase != TouchPhase.Moved)
+//             return Vector3.zero;
+
+//         Ray rayBefore = Camera.main.ScreenPointToRay(touch.position - touch.deltaPosition);
+//         Ray rayNow = Camera.main.ScreenPointToRay(touch.position);
+        
+//         if (plane.Raycast(rayBefore, out float enterBefore) && plane.Raycast(rayNow, out float enterNow))
 //         {
-//             Touch touch0 = Input.GetTouch(0);
-//             Touch touch1 = Input.GetTouch(1);
-
-//             if (touch0.phase == TouchPhase.Moved || touch1.phase == TouchPhase.Moved)
-//             {
-//                 // Calculate the distance between the touches
-//                 float previousDistance = Vector2.Distance(touch0.position - touch0.deltaPosition, touch1.position - touch1.deltaPosition);
-//                 float currentDistance = Vector2.Distance(touch0.position, touch1.position);
-//                 float zoomDelta = previousDistance - currentDistance;
-
-//                 // Zoom in on pinch out (i.e., zoomDelta > 0 reduces height)
-//                 Vector3 newPosition = mapCam.transform.position - mapCam.transform.forward * zoomDelta * zoomSpeed;
-//                 float newHeight = Mathf.Clamp(newPosition.y, minZoom, maxZoom); // Limit height for zoom
-
-//                 // Set the new position
-//                 mapCam.transform.position = new Vector3(newPosition.x, newHeight, newPosition.z);
-//             }
+//             return rayBefore.GetPoint(enterBefore) - rayNow.GetPoint(enterNow);
 //         }
+
+//         return Vector3.zero; // Return zero if rays do not hit the plane
 //     }
 // }
+// #endif
+
 
 using UnityEngine;
 using Unity.Cinemachine;
 
 public class MapController : MonoBehaviour
 {
-    public CinemachineCamera mapCam; // Reference to MapCam
-    public float zoomSpeed = 0.05f; // Speed of zooming
-    public float minZoom = 0.0f; // Minimum zoom level
-    public float maxZoom = 100.0f; // Maximum zoom level
-    public float dragSpeed = 1.0f; // Speed of dragging
+#if UNITY_IOS || UNITY_ANDROID
+    public CinemachineCamera MapCam; // Reference to CinemachineCamera
+    private Plane plane; // Track the plane for raycasting
 
-    private Vector3 lastTouchPosition; // To store the last touch position
-    private bool isDragging = false; // To track if the user is dragging
+    public float zoomSpeed = 0.002f; // Adjusted zoom speed for more control
+    public float minZoom = 2.0f; // Minimum zoom level
+    public float maxZoom = 10.0f; // Maximum zoom level
+
+    private void Awake()
+    {
+        if (MapCam == null) 
+            MapCam = FindObjectOfType<CinemachineCamera>(); // Find if MapCam is not assigned
+    }
+
+    private void Start()
+    {
+        // Create and setup the plane
+        Vector3 normal = Vector3.up; // Assuming the map is flat on the Y plane
+        plane = new Plane(normal, transform.position);
+    }
 
     private void Update()
     {
-        // Handle dragging
-        HandleDragging();
+        // Handle dragging for scrolling
+        if (Input.touchCount >= 1) 
+        {
+            HandleDragging();
+        }
 
-        // Handle zooming with pinch gestures
-        HandleZoom();
+        if (Input.touchCount >= 2) 
+        {
+            HandlingPinching();
+        }
     }
 
     private void HandleDragging()
     {
-        if (Input.touchCount == 1) // Ensure there's one touch
+        Touch touch = Input.GetTouch(0);
+    
+        // Only move on touch if finger is down or moved
+        if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved)
         {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began)
+            Vector3 delta = GetPlanePositionDelta(touch);
+            if (delta != Vector3.zero)
             {
-                // Record the initial position
-                lastTouchPosition = touch.position;
-                isDragging = true; // Set dragging state
-            }
-            else if (touch.phase == TouchPhase.Moved && isDragging)
-            {
-                // Calculate the movement delta
-                Vector3 deltaPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, Camera.main.nearClipPlane)) 
-                                        - Camera.main.ScreenToWorldPoint(new Vector3(lastTouchPosition.x, lastTouchPosition.y, Camera.main.nearClipPlane));
-
-                lastTouchPosition = touch.position;
-
-                // Move the camera based on the input
-                mapCam.transform.Translate(-deltaPosition * dragSpeed, Space.World); // Apply drag speed
-            }
-            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
-            {
-                isDragging = false; // Reset dragging state
+                // Move the camera based on user input
+                MapCam.transform.Translate(delta, Space.World); // Move in the correct direction
             }
         }
     }
-   private void HandleZoom()
+
+    private void HandlingPinching() 
     {
-        if (Input.touchCount == 2)
+        Touch touch0 = Input.GetTouch(0);
+        Touch touch1 = Input.GetTouch(1);
+
+        // Previous positions for the touches
+        Vector2 touch0PrevPos = touch0.position - touch0.deltaPosition;
+        Vector2 touch1PrevPos = touch1.position - touch1.deltaPosition;
+
+        // Calculate the distances between the two touches
+        float previousDistance = Vector2.Distance(touch0PrevPos, touch1PrevPos);
+        float currentDistance = Vector2.Distance(touch0.position, touch1.position);
+
+        // Calculate zoom factor
+        float zoomDelta = previousDistance - currentDistance;
+
+        // Zooming logic with adjustment for vertical orientation
+        Vector3 newPosition = MapCam.transform.position + MapCam.transform.forward * zoomDelta * zoomSpeed;
+
+        // Clamp to min/max zoom levels
+        float newHeight = Mathf.Clamp(newPosition.y, minZoom, maxZoom); 
+
+        // Set the new camera position
+        MapCam.transform.position = new Vector3(newPosition.x, newHeight, newPosition.z); 
+    }
+
+    protected Vector3 GetPlanePositionDelta(Touch touch) 
+    {
+        // Delta requires two raycasts for the touch movements
+        if (touch.phase != TouchPhase.Moved)
+            return Vector3.zero;
+
+        Ray rayBefore = Camera.main.ScreenPointToRay(touch.position - touch.deltaPosition);
+        Ray rayNow = Camera.main.ScreenPointToRay(touch.position);
+        
+        if (plane.Raycast(rayBefore, out float enterBefore) && plane.Raycast(rayNow, out float enterNow))
         {
-            Touch touch0 = Input.GetTouch(0);
-            Touch touch1 = Input.GetTouch(1);
-
-            if (touch0.phase == TouchPhase.Moved || touch1.phase == TouchPhase.Moved)
-            {
-                // Calculate distances between touches
-                float previousDistance = Vector2.Distance(touch0.position - touch0.deltaPosition, touch1.position - touch1.deltaPosition);
-                float currentDistance = Vector2.Distance(touch0.position, touch1.position);
-                float zoomDelta = currentDistance - previousDistance;
-
-               // Adjust the camera's position based on zoomDelta
-               Vector3 newPosition = mapCam.transform.position + mapCam.transform.forward * zoomDelta * zoomSpeed;
-
-               // Clamp the height to min/max zoom levels
-               float newHeight = Mathf.Clamp(newPosition.y, minZoom, maxZoom);
-
-               // Set the new position
-                mapCam.transform.position = new Vector3(newPosition.x, newHeight, newPosition.z);
-            }
+            return rayBefore.GetPoint(enterBefore) - rayNow.GetPoint(enterNow);
         }
+
+        return Vector3.zero; // Return zero if rays do not hit the plane
     }
 }
+#endif
