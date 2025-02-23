@@ -2,16 +2,16 @@ using System;
 using UnityEngine;
 using StackExchange.Redis;
 using System.Threading.Tasks;
-using Newtonsoft.Json;  // ✅ JSON Parsing
-using System.Collections; // ✅ Fix for IEnumerator
-using UnityEngine.UI;  // ✅ UI Warning Text Support
+using Newtonsoft.Json;  // JSON Parsing
+using System.Collections; // Fix for IEnumerator
+using UnityEngine.UI;  // UI Warning Text Support
 using TMPro; 
 
 public class RedisManager : MonoBehaviour
 {
     private static ConnectionMultiplexer redis;
     private static IDatabase db;
-    private static bool isConnected = false; // ✅ Track connection status
+    private static bool isConnected = false; // Track connection status
 
     private string redisHost = "redis-13242.crce178.ap-east-1-1.ec2.redns.redis-cloud.com";
     private int redisPort = 13242;
@@ -25,8 +25,8 @@ public class RedisManager : MonoBehaviour
         await ConnectToRedis();
         if (isConnected)
         {
-            //Debug.Log("✅ Redis Connected Successfully!");
-            StartCoroutine(UpdateGPSDataLoop());  // ✅ Start auto-fetching GPS data
+            //Debug.Log("Redis Connected Successfully!");
+            StartCoroutine(UpdateGPSDataLoop());  // Start auto-fetching GPS data
         }
     }
 
@@ -42,8 +42,8 @@ public class RedisManager : MonoBehaviour
         catch (Exception ex)
         {
             isConnected = false;
-            ShowWarning("❌ Redis Connection Failed! Check Internet.");
-            //Debug.LogError($"❌ Redis Connection Failed: {ex.Message}");
+            ShowWarning("Redis Connection Failed! Check Internet.");
+            //Debug.LogError($"Redis Connection Failed: {ex.Message}");
         }
     }
 
@@ -51,8 +51,8 @@ public class RedisManager : MonoBehaviour
     {
         while (true)
         {
-            yield return FetchGPSData(); // ✅ Properly waits without blocking Unity
-            //  // ✅ Wait for result (avoids implicit conversion issue)
+            yield return FetchGPSData(); // Properly waits without blocking Unity
+            //  // Wait for result (avoids implicit conversion issue)
             yield return new WaitForSeconds(1.0f);
         }
     }
@@ -62,28 +62,28 @@ public class RedisManager : MonoBehaviour
         if (!isConnected || db == null)
         {
             ShowWarning("⚠️ Redis not connected. Reconnecting...");
-            await ConnectToRedis(); // 🔥 Try reconnecting
+            await ConnectToRedis(); // Try reconnecting
             if (!isConnected) return Vector2.zero;
         }
 
-        //Debug.Log("🔍 Fetching GPS data from Redis...");
+        //Debug.Log("Fetching GPS data from Redis...");
 
         string gpsDataJson = await db.StringGetAsync("gps:tram_1");
 
         if (string.IsNullOrEmpty(gpsDataJson))
         {
-            ShowWarning("⚠️ No GPS data found!");
+            ShowWarning("No GPS data found!");
             return Vector2.zero;
         }
 
         // 🔹 Clean up double-encoded JSON if necessary
         if (gpsDataJson.StartsWith("\"") && gpsDataJson.EndsWith("\""))
         {
-            //Debug.Log("🔄 Detected double-encoded JSON, fixing it...");
+            //Debug.Log("Detected double-encoded JSON, fixing it...");
             gpsDataJson = gpsDataJson.Trim('"').Replace("\\\"", "\"");
         }
 
-        //Debug.Log($"🟢 CLEANED JSON: {gpsDataJson}");
+        //Debug.Log($"CLEANED JSON: {gpsDataJson}");
 
         GPSData gps;
         try
@@ -92,19 +92,19 @@ public class RedisManager : MonoBehaviour
         }
         catch (Exception e)
         {
-            ShowWarning("⚠️ GPS data error.");
-            //Debug.LogError($"❌ JSON Parsing Failed: {e.Message}");
+            ShowWarning("GPS data error.");
+            //Debug.LogError($"JSON Parsing Failed: {e.Message}");
             return Vector2.zero;
         }
 
         if (gps == null || gps.latitude == null || gps.longitude == null)
         {
-            ShowWarning("⚠️ Tram is not receiving fixed GPS data.");
+            ShowWarning("Tram is not receiving fixed GPS data.");
             return Vector2.zero;
         }
 
-        HideWarning(); // ✅ GPS is valid, hide warning
-        //Debug.Log($"📍 GPS Position: {gps.latitude}, {gps.longitude}");
+        HideWarning(); // GPS is valid, hide warning
+        //Debug.Log($"GPS Position: {gps.latitude}, {gps.longitude}");
 
         return new Vector2((float)gps.latitude, (float)gps.longitude);
     }
@@ -129,7 +129,7 @@ public class RedisManager : MonoBehaviour
     [Serializable]
     private class GPSData
     {
-        public double? latitude; // ✅ Allow nullable values
+        public double? latitude; // Allow nullable values
         public double? longitude;
     }
 }

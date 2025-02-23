@@ -17,10 +17,10 @@ public class LoginManager : MonoBehaviour
 
     void Start()
     {
-        // ✅ Check if the user is already logged in
+        // Check if the user is already logged in
         if (PlayerPrefs.GetInt("IsLoggedIn", 0) == 1)
         {
-            Debug.Log("✅ User is already logged in! Redirecting...");
+            Debug.Log("User is already logged in! Redirecting...");
             UnityEngine.SceneManagement.SceneManager.LoadScene("UniversityMapScene");
             return;
         }
@@ -31,17 +31,17 @@ public class LoginManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("❌ Sign-in button not assigned in Unity Inspector.");
+            Debug.LogError("Sign-in button not assigned in Unity Inspector.");
         }
     }
 
     private void OpenAuthenticationPage()
     {
-        Debug.Log($"🌍 Opening authentication page: {authUrl}");
-        Application.OpenURL(authUrl);  // ✅ Opens Safari for login
+        Debug.Log($"Opening authentication page: {authUrl}");
+        Application.OpenURL(authUrl);  // Opens Safari for login
     }
 
-    // ✅ Detect when user returns from Safari and load `UniversityMapScene`
+    // Detect when user returns from Safari and load `UniversityMapScene`
     void OnEnable()
     {
         Application.deepLinkActivated += OnDeepLinkActivated;
@@ -54,14 +54,14 @@ public class LoginManager : MonoBehaviour
 
     void OnDeepLinkActivated(string url)
     {
-        Debug.Log("🔄 User returned from Safari: " + url);
+        Debug.Log("User returned from Safari: " + url);
         
-        // ✅ Save login state
+        // Save login state
         PlayerPrefs.SetInt("IsLoggedIn", 1);
         PlayerPrefs.Save();
 
-        // ✅ After returning from authentication, load UniversityMapScene
-        Debug.Log("🚀 Authentication complete! Loading UniversityMapScene...");
+        // After returning from authentication, load UniversityMapScene
+        Debug.Log("Authentication complete! Loading UniversityMapScene...");
         UnityEngine.SceneManagement.SceneManager.LoadScene("UniversityMapScene");
     }
 }
