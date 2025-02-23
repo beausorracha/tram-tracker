@@ -29,6 +29,6 @@ public class NextStationDisplay : MonoBehaviour
 
     private void UpdateStationText()
     {
-        stationText.text = "Next Station: " + TramLocation.Instance.nextStation;
+        stationText.text = "" + TramLocation.Instance.nextStation;
     }
 }
