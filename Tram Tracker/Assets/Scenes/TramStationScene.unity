@@ -1292,19 +1292,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 909231353}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1554015987}
-        m_TargetAssemblyTypeName: NotificationOpener, Assembly-CSharp
-        m_MethodName: OpenNotification
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &909231353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1843,7 +1831,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Select your station, we\u2019ll alert you when a tram is nearby."
+  m_text: Select your station that you want to locate in AU Map.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
   m_sharedMaterial: {fileID: -1070156641545715890, guid: 5d7d4e9d339e5412d888d4a580befe30, type: 2}
