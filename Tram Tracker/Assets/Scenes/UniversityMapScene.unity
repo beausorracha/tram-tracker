@@ -9097,7 +9097,7 @@ MonoBehaviour:
   redisManager: {fileID: 1685734868}
   gpsConverter: {fileID: 1271061540}
   tram: {fileID: 392692261}
-  moveSpeed: 20
+  moveSpeed: 12
   updateInterval: 2
   minMoveThreshold: 0.00005
 --- !u!1001 &398080692
@@ -18996,6 +18996,7 @@ MonoBehaviour:
   zoomSpeed: 0.5
   minZoom: 200
   maxZoom: 975
+  draggingSpeed: 1.5
 --- !u!4 &873020242
 Transform:
   m_ObjectHideFlags: 0

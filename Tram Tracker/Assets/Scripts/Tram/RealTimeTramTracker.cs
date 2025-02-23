@@ -8,7 +8,7 @@ public class RealTimeTramTracker : MonoBehaviour
     public RedisManager redisManager; // Redis connection manager
     public GPSConverter gpsConverter; // GPS-to-Unity coordinate converter
     public Transform tram; // Tram object
-    public float moveSpeed = 10f; // Speed of tram movement
+    public float moveSpeed = 12f; // Speed of tram movement
     public float updateInterval = 2f; // Interval to fetch GPS data
     public float minMoveThreshold = 0.00005f; // Prevents micro-movement due to GPS noise
 
