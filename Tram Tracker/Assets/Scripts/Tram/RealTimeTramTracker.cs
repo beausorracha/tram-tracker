@@ -98,32 +98,33 @@ public class RealTimeTramTracker : MonoBehaviour
     }
 
     private IEnumerator SmoothMoveTram(Vector3 targetPosition)
+{
+    Vector3 startPosition = tram.position;
+    float totalDistance = Vector3.Distance(startPosition, targetPosition);
+    float journeyTime = totalDistance / moveSpeed;
+    float journey = 0f;
+
+    while (journey < 1f) // ✅ Ensures tram moves smoothly until it reaches the target
     {
-        Vector3 startPosition = tram.position;
-        float totalDistance = Vector3.Distance(startPosition, targetPosition);
-        float journeyTime = totalDistance / moveSpeed;
-        float journey = 0f;
+        journey += Time.deltaTime / journeyTime;
+        float easeFactor = Mathf.SmoothStep(0f, 1f, journey);
+        tram.position = Vector3.Lerp(startPosition, targetPosition, easeFactor);
 
-        // ✅ Ease-in and ease-out movement for smooth transitions
-        while (journey < 1f)
+        // ✅ Rotate tram towards movement direction dynamically
+        Vector3 direction = (targetPosition - tram.position).normalized;
+        if (direction != Vector3.zero)
         {
-            journey += Time.deltaTime / journeyTime;
-            float easeFactor = Mathf.SmoothStep(0f, 1f, journey); // 🚀 Smooth transition
-            tram.position = Vector3.Lerp(startPosition, targetPosition, easeFactor);
-
-            // ✅ Rotate tram towards movement direction
-            Vector3 direction = (targetPosition - tram.position).normalized;
-            if (direction != Vector3.zero)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up) * Quaternion.Euler(0, -90, 0);
-                tram.rotation = Quaternion.Slerp(tram.rotation, targetRotation, Time.deltaTime * 5f);
-            }
-
-            yield return null;
+            Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up) * Quaternion.Euler(0, -90, 0);
+            tram.rotation = Quaternion.Slerp(tram.rotation, targetRotation, Time.deltaTime * 5f);
         }
 
-        tram.position = targetPosition;
+        yield return null;
     }
+
+    // ✅ Ensure tram reaches exact target position
+    tram.position = targetPosition; 
+}
+
 
     private bool HasSignificantMovement(Vector2 newPos, Vector2 oldPos, float threshold)
     {
