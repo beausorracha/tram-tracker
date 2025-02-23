@@ -10,16 +10,16 @@ public class RealTimeTramTracker : MonoBehaviour
     public Transform tram; // Tram object
     public float moveSpeed = 10f; // Speed of tram movement
     public float updateInterval = 2f; // Interval to fetch GPS data
-    public float minMoveThreshold = 0.00005f; // ✅ Prevents micro-movement due to GPS noise
+    public float minMoveThreshold = 0.00005f; // Prevents micro-movement due to GPS noise
 
     private Vector2 lastGPSPosition = Vector2.zero;
-    private Coroutine moveCoroutine; // ✅ Stores movement coroutine for better control
+    private Coroutine moveCoroutine; // Stores movement coroutine for better control
 
     void Start()
     {
         if (tram == null || redisManager == null || gpsConverter == null)
         {
-            Debug.LogError("🚨 Missing required components! Check Inspector.");
+            Debug.LogError("Missing required components! Check Inspector.");
             return;
         }
 
@@ -33,14 +33,14 @@ public class RealTimeTramTracker : MonoBehaviour
 
         if (fetchTask.IsFaulted)
         {
-            Debug.LogError("❌ Failed to fetch initial GPS data.");
+            Debug.LogError("Failed to fetch initial GPS data.");
             yield break;
         }
 
         Vector2 initialGPSPosition = fetchTask.Result;
         if (initialGPSPosition == Vector2.zero)
         {
-            Debug.LogWarning("⚠️ No valid initial GPS data received.");
+            Debug.LogWarning("No valid initial GPS data received.");
             yield break;
         }
 
@@ -67,30 +67,30 @@ public class RealTimeTramTracker : MonoBehaviour
 
         if (fetchTask.IsFaulted)
         {
-            Debug.LogError("❌ Failed to fetch GPS data.");
+            Debug.LogError("Failed to fetch GPS data.");
             yield break;
         }
 
         Vector2 newGPSPosition = fetchTask.Result;
         if (newGPSPosition == Vector2.zero)
         {
-            Debug.LogWarning("⚠️ No valid GPS position received.");
+            Debug.LogWarning("No valid GPS position received.");
             yield break;
         }
 
-        // ✅ Prevent tram from stopping due to minor GPS fluctuations
+        // Prevent tram from stopping due to minor GPS fluctuations
         if (!HasSignificantMovement(newGPSPosition, lastGPSPosition, minMoveThreshold))
         {
-            Debug.Log("🚫 Small GPS change detected. Skipping update.");
+            Debug.Log("Small GPS change detected. Skipping update.");
             yield break;
         }
 
         lastGPSPosition = newGPSPosition;
 
-        // ✅ Convert GPS coordinates to Unity position
+        // Convert GPS coordinates to Unity position
         Vector3 targetPosition = gpsConverter.ConvertGPSToUnity(newGPSPosition.x, newGPSPosition.y);
 
-        // ✅ Stop any existing movement coroutine before starting a new one
+        // Stop any existing movement coroutine before starting a new one
         if (moveCoroutine != null)
             StopCoroutine(moveCoroutine);
 
@@ -104,13 +104,13 @@ public class RealTimeTramTracker : MonoBehaviour
     float journeyTime = totalDistance / moveSpeed;
     float journey = 0f;
 
-    while (journey < 1f) // ✅ Ensures tram moves smoothly until it reaches the target
+    while (journey < 1f) // Ensures tram moves smoothly until it reaches the target
     {
         journey += Time.deltaTime / journeyTime;
         float easeFactor = Mathf.SmoothStep(0f, 1f, journey);
         tram.position = Vector3.Lerp(startPosition, targetPosition, easeFactor);
 
-        // ✅ Rotate tram towards movement direction dynamically
+        // Rotate tram towards movement direction dynamically
         Vector3 direction = (targetPosition - tram.position).normalized;
         if (direction != Vector3.zero)
         {
@@ -121,7 +121,7 @@ public class RealTimeTramTracker : MonoBehaviour
         yield return null;
     }
 
-    // ✅ Ensure tram reaches exact target position
+    // Ensure tram reaches exact target position
     tram.position = targetPosition; 
 }
 

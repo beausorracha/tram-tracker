@@ -159,13 +159,13 @@ public class TramTracker : MonoBehaviour
     {
         if (tram == null)
         {
-            Debug.LogError("🚨 Tram Transform is not assigned in Inspector!");
+            Debug.LogError("Tram Transform is not assigned in Inspector!");
             return;
         }
 
         if (gpsConverter == null)
         {
-            Debug.LogError("🚨 GPSConverter is not assigned in Inspector!");
+            Debug.LogError("GPSConverter is not assigned in Inspector!");
             return;
         }
 
@@ -195,7 +195,7 @@ public class TramTracker : MonoBehaviour
             journey += Time.deltaTime / journeyTime;
             tram.position = Vector3.Lerp(startPos, targetPos, journey);
 
-            // 🔥 Fix: Rotate the tram correctly
+            // Fix: Rotate the tram correctly
             Vector3 direction = (targetPos - tram.position).normalized;
             if (direction != Vector3.zero)
             {
@@ -209,7 +209,7 @@ public class TramTracker : MonoBehaviour
         currentTargetIndex++;
     }
 
-    Debug.Log("✅ Tram reached the last test point.");
+    Debug.Log("Tram reached the last test point.");
 }
 
 

@@ -11,13 +11,13 @@ public class GPSTestObject : MonoBehaviour
     {
         if (testObject == null)
         {
-            Debug.LogError("🚨 Test Object is not assigned!");
+            Debug.LogError("Test Object is not assigned!");
             return;
         }
 
         if (gpsConverter == null)
         {
-            Debug.LogError("🚨 GPSConverter is not assigned!");
+            Debug.LogError("GPSConverter is not assigned!");
             return;
         }
 
@@ -25,6 +25,6 @@ public class GPSTestObject : MonoBehaviour
         Vector3 unityPosition = gpsConverter.ConvertGPSToUnity(testGPSPosition.x, testGPSPosition.y);
         testObject.position = unityPosition;
 
-        Debug.Log($"🎯 Test Object Placed at Unity Position: {unityPosition} from GPS: {testGPSPosition}");
+        Debug.Log($"Test Object Placed at Unity Position: {unityPosition} from GPS: {testGPSPosition}");
     }
 }

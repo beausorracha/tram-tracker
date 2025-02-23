@@ -17,7 +17,7 @@ public class NotificationOpener : MonoBehaviour
         selectedStation = stationName;
         PlayerPrefs.SetString("SelectedStation", stationName); // Save selection
         PlayerPrefs.Save();
-        Debug.Log("🚉 Selected Station: " + stationName);
+        Debug.Log("Selected Station: " + stationName);
 
         confirmButton.interactable = true; // Enable Confirm button after selection
     }
@@ -29,12 +29,12 @@ public class NotificationOpener : MonoBehaviour
             if (Panel != null)
             {
                 Panel.SetActive(true);
-                Debug.Log("✅ Confirmation Modal Opened");
+                Debug.Log("Confirmation Modal Opened");
             }
         }
         else
         {
-            Debug.LogWarning("⚠️ Please select a station first!");
+            Debug.LogWarning("Please select a station first!");
         }
     }
 

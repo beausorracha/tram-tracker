@@ -4,10 +4,10 @@ using TMPro;
 
 public class LogoutManager : MonoBehaviour
 {
-    public Button logoutButton; // ✅ Logout button in settings page
-    public Button okButton; // ✅ OK button in modal
-    public Button cancelButton; // ✅ Cancel button in modal
-    public GameObject modalPanel; // ✅ Modal panel
+    public Button logoutButton; 
+    public Button okButton; 
+    public Button cancelButton; 
+    public GameObject modalPanel; 
     public TextMeshProUGUI messageText;
 
     void Start()
@@ -18,7 +18,7 @@ public class LogoutManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("❌ Logout button not assigned in Unity Inspector.");
+            Debug.LogError("Logout button not assigned in Unity Inspector.");
         }
         if (okButton == null)
         {
@@ -39,40 +39,39 @@ public class LogoutManager : MonoBehaviour
         cancelButton.onClick.AddListener(CloseModal); 
     }
 
-    // ✅ Show Logout Confirmation Dialog
+    // Show Logout Confirmation Dialog
     public void ShowLogoutConfirmation()
     {
-        Debug.Log("⚠️ Asking for logout confirmation...");
-        // messageText.text = "Confirm to Sign Out? (OK / Cancel)";
+        Debug.Log("Asking for logout confirmation...");
 
-        // ✅ Call Logout when OK is clicked
+        // Call Logout when OK is clicked
         modalPanel.SetActive(true);
     }
 
     public void CloseModal()
     {
-        Debug.Log("❌ Logout canceled. Closing modal.");
+        Debug.Log("Logout canceled. Closing modal.");
         modalPanel.SetActive(false);
     }
 
         private void ConfirmLogout()
     {
-        Debug.Log("✅ User confirmed logout. Logging out in 2 seconds...");
+        Debug.Log("User confirmed logout. Logging out in 2 seconds...");
         modalPanel.SetActive(false); // Hide the modal before the scene change
         Invoke("Logout", 2f); // Delay logout by 2 seconds
     }
 
-    // ✅ Logout Function
+    // Logout Function
     private void Logout()
     {
         PlayerPrefs.SetInt("IsLoggedIn", 0); // Remove login flag
         PlayerPrefs.Save();
 
-        // ✅ Redirect to OpeningScene (Login Page)
+        // Redirect to OpeningScene (Login Page)
         UnityEngine.SceneManagement.SceneManager.LoadScene("OpeningScene");
     }
 
-    // ✅ Remove Listeners Function
+    // Remove Listeners Function
     private void OnDestroy()
     {
         if (logoutButton != null)
