@@ -3,9 +3,9 @@ using Unity.Cinemachine;
 
 public class CameraSwitcher : MonoBehaviour
 {
-    public CinemachineCamera TramCam; // Main tram camera
-    public CinemachineCamera MapCam; // Main map camera
-    public CinemachineCamera[] StationCams; // Array for station cameras
+    public CinemachineCamera TramCam;
+    public CinemachineCamera MapCam;
+    public CinemachineCamera[] StationCams;
 
     private CinemachineCamera currentActiveCamera;
     private bool isTramActive = true;

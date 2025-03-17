@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ModalController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class ModalController : MonoBehaviour
     public GameObject ExitButton;
     public GameObject SettingsButton;
     public GameObject RefreshButton;
+    public Button DimensionButton;
     public GameObject[] stationButtons; // Buttons inside modal for each station
 
     public CameraSwitcher cameraSwitcher; // Reference to the CameraSwitcher script!
@@ -43,7 +45,7 @@ public class ModalController : MonoBehaviour
     // =============================
 
     // Displays the modal with station selection buttons
-    private void ShowModal()
+    public void ShowModal()
     {
         Debug.Log("Showing Station Modal");
 
@@ -60,6 +62,7 @@ public class ModalController : MonoBehaviour
         ObjectName.gameObject.SetActive(false);
         ObjectDetails.gameObject.SetActive(false);
         ExitButton.SetActive(true);
+        // DimensionButton.interactable = false;
     }
 
     // Displays specific station details based on selection
@@ -105,6 +108,7 @@ public class ModalController : MonoBehaviour
 
         SettingsButton.SetActive(false);
         RefreshButton.SetActive(false);
+
     }
 
     private void SwitchStationCamera(int stationIndex)
@@ -151,5 +155,7 @@ public class ModalController : MonoBehaviour
 
         SettingsButton.SetActive(true);
         RefreshButton.SetActive(true);
+        DimensionButton.interactable = true;
+
     }
 }

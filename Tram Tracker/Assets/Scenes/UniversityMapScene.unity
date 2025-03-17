@@ -838,7 +838,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -80}
+  m_AnchoredPosition: {x: 0, y: -70}
   m_SizeDelta: {x: 800, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &20453912
@@ -6774,11 +6774,13 @@ MonoBehaviour:
   ExitButton: {fileID: 1349604366}
   SettingsButton: {fileID: 1641043518}
   RefreshButton: {fileID: 243941202}
+  DimensionButton: {fileID: 297502759}
   stationButtons:
   - {fileID: 133117861}
   - {fileID: 1331998500}
   - {fileID: 644886429}
   - {fileID: 338407074}
+  cameraSwitcher: {fileID: 0}
 --- !u!4 &277438623
 Transform:
   m_ObjectHideFlags: 0
@@ -7726,6 +7728,18 @@ MonoBehaviour:
       - m_Target: {fileID: 434206842}
         m_TargetAssemblyTypeName: CameraSwitcher, Assembly-CSharp
         m_MethodName: ToggleTramMapCamera
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 277438622}
+        m_TargetAssemblyTypeName: ModalController, Assembly-CSharp
+        m_MethodName: ShowModal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26119,8 +26133,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -35757,7 +35771,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 277438622}
         m_TargetAssemblyTypeName: ModalController, Assembly-CSharp
-        m_MethodName: ExitStationSelectior
+        m_MethodName: ExitStationSelector
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
