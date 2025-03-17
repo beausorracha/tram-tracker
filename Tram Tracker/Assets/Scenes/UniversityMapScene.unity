@@ -3466,6 +3466,18 @@ MonoBehaviour:
           m_StringArgument: msm
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 277438622}
+        m_TargetAssemblyTypeName: ModalController, Assembly-CSharp
+        m_MethodName: ShowStationInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &133117864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6759,7 +6771,9 @@ MonoBehaviour:
   tramStationModal: {fileID: 1355857679}
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
+  ExitButton: {fileID: 1349604366}
   SettingsButton: {fileID: 1641043518}
+  RefreshButton: {fileID: 243941202}
   stationButtons:
   - {fileID: 133117861}
   - {fileID: 1331998500}
@@ -9417,6 +9431,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: queen
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 277438622}
+        m_TargetAssemblyTypeName: ModalController, Assembly-CSharp
+        m_MethodName: ShowStationInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &338407077
@@ -18047,6 +18073,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: aumall
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 277438622}
+        m_TargetAssemblyTypeName: ModalController, Assembly-CSharp
+        m_MethodName: ShowStationInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &644886432
@@ -35021,6 +35059,18 @@ MonoBehaviour:
           m_StringArgument: it
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 277438622}
+        m_TargetAssemblyTypeName: ModalController, Assembly-CSharp
+        m_MethodName: ShowStationInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1331998503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35628,7 +35678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1349604367
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35692,7 +35742,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1349604369}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 434206842}
+        m_TargetAssemblyTypeName: CameraSwitcher, Assembly-CSharp
+        m_MethodName: SwitchToCamera
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: tram
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 277438622}
+        m_TargetAssemblyTypeName: ModalController, Assembly-CSharp
+        m_MethodName: ExitStationSelectior
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1349604369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42864,6 +42938,54 @@ MonoBehaviour:
           m_StringArgument: SettingsScene
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 277438622}
+        m_TargetAssemblyTypeName: ModalController, Assembly-CSharp
+        m_MethodName: ShowStationInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 277438622}
+        m_TargetAssemblyTypeName: ModalController, Assembly-CSharp
+        m_MethodName: ShowStationInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 277438622}
+        m_TargetAssemblyTypeName: ModalController, Assembly-CSharp
+        m_MethodName: ShowStationInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 277438622}
+        m_TargetAssemblyTypeName: ModalController, Assembly-CSharp
+        m_MethodName: ShowStationInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1641043521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44742,7 +44864,7 @@ MonoBehaviour:
       - m_Target: {fileID: 277438622}
         m_TargetAssemblyTypeName: ModalController, Assembly-CSharp
         m_MethodName: ShowModal
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

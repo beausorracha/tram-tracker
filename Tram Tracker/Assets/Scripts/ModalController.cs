@@ -3,34 +3,37 @@ using TMPro;
 
 public class ModalController : MonoBehaviour
 {
-    public GameObject tramStationModal; 
+    public GameObject tramStationModal; // Reference to the TramStationModal GameObject
     public TextMeshProUGUI ObjectName; // Reference to the name text object
     public TextMeshProUGUI ObjectDetails; // Reference to the details text object
+    public GameObject ExitButton;
     public GameObject SettingsButton;
-    public GameObject[] stationButtons; // Reference to the buttons that will be shown/hidden
+    public GameObject RefreshButton;
+    public GameObject[] stationButtons; // Reference to the buttons that represent each station
 
-    // Call this method with a parameter to determine which station the user clicked
-    public void ShowModal(int stationIndex)
+    // Call this method to display the modal with options
+    public void ShowModal()
     {
         // Activate the modal
         tramStationModal.SetActive(true);
         
-        // Clear all previous station buttons and ensure all relevant buttons are visible
+        // Show all available station buttons
         foreach (var button in stationButtons)
         {
-            button.SetActive(false); // Set all buttons to inactive first
+            button.SetActive(true); 
         }
+    }
 
-        // Activate all station buttons or specific logic
-        foreach (GameObject button in stationButtons)
+    // Call this method to display the specific station's details
+    public void ShowStationInfo(int stationIndex)
+    {
+        // Hide all station buttons first if only showing info
+        foreach (var button in stationButtons)
         {
-            button.SetActive(true); // Show all station buttons
+            button.SetActive(false);
         }
 
-        // Set the relevant text for the modal
-        ObjectName.gameObject.SetActive(true);
-        ObjectDetails.gameObject.SetActive(true);
-        
+        // Update ObjectName and ObjectDetails based on the selected station
         switch (stationIndex)
         {
             case 0: // MSM Station
@@ -53,14 +56,23 @@ public class ModalController : MonoBehaviour
                 Debug.LogWarning("Unknown station index: " + stationIndex);
                 break;
         }
-    }
 
-    public void HideModal()
-    {
-        // Deactivate the modal
-        tramStationModal.SetActive(false);
+        // Show the ObjectName and ObjectDetails
         ObjectName.gameObject.SetActive(true);
         ObjectDetails.gameObject.SetActive(true);
+        ExitButton.SetActive(true);
+        tramStationModal.SetActive(false);
         SettingsButton.SetActive(false);
+        RefreshButton.SetActive(false);
+    }
+
+    public void ExitStationSelectior()
+    {
+        tramStationModal.SetActive(false);
+        ObjectName.gameObject.SetActive(false);
+        ObjectDetails.gameObject.SetActive(false);
+        ExitButton.gameObject.SetActive(false);
+        SettingsButton.gameObject.SetActive(true);
+        RefreshButton.gameObject.SetActive(true);
     }
 }
