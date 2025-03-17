@@ -8,52 +8,62 @@ public class CameraSwitcher : MonoBehaviour
     public CinemachineCamera[] StationCams; // Array for station cameras
 
     private CinemachineCamera currentActiveCamera;
-    private bool isTramActive = true; // Track which camera is currently active
+    private bool isTramActive = true;
 
     void Start()
     {
-        // Initialize with the TramCam as the default camera
+        // Disable everything first to avoid ghost cameras
+        TramCam.gameObject.SetActive(false);
+        MapCam.gameObject.SetActive(false);
+
+        foreach (var cam in StationCams)
+        {
+            cam.gameObject.SetActive(false);
+        }
+
+        // Now activate TramCam cleanly
         ActivateCamera(TramCam);
     }
 
-    // Method to activate a specific camera
     private void ActivateCamera(CinemachineCamera newActiveCamera)
     {
-        // Disable the currently active camera
+        Debug.Log($"Activating Camera: {newActiveCamera.name}");
+
         if (currentActiveCamera != null)
         {
             currentActiveCamera.gameObject.SetActive(false);
+            Debug.Log($"Deactivated Camera: {currentActiveCamera.name}");
         }
 
-        // Activate the new camera and update the reference
         currentActiveCamera = newActiveCamera;
         currentActiveCamera.gameObject.SetActive(true);
     }
 
-    // Switch to a specific camera based on the input
     public void SwitchToCamera(string cameraType)
     {
+        Debug.Log($"Switching to camera: {cameraType}");
+
         switch (cameraType.ToLower())
         {
             case "tram":
                 ActivateCamera(TramCam);
-                isTramActive = true; // Update state
+                isTramActive = true;
                 break;
             case "map":
                 ActivateCamera(MapCam);
-                isTramActive = false; // Update state
+                isTramActive = false;
                 break;
             case "msm":
-                ActivateCamera(StationCams[0]); // Assuming MSM is at index 0
+                ActivateCamera(StationCams[0]);
                 break;
             case "it":
-                ActivateCamera(StationCams[1]); // Assuming IT is at index 1
+                ActivateCamera(StationCams[1]);
                 break;
             case "aumall":
-                ActivateCamera(StationCams[2]); // Assuming AUMall is at index 2
+                ActivateCamera(StationCams[2]);
                 break;
             case "queen":
-                ActivateCamera(StationCams[3]); // Assuming Queen Of Sheba is at index 3
+                ActivateCamera(StationCams[3]);
                 break;
             default:
                 Debug.LogWarning("Unknown camera type: " + cameraType);
@@ -61,7 +71,6 @@ public class CameraSwitcher : MonoBehaviour
         }
     }
 
-    // Toggles between TramCam and MapCam
     public void ToggleTramMapCamera()
     {
         if (isTramActive)
@@ -72,6 +81,7 @@ public class CameraSwitcher : MonoBehaviour
         {
             ActivateCamera(TramCam);
         }
-        isTramActive = !isTramActive; // Toggle the state
+
+        isTramActive = !isTramActive;
     }
 }

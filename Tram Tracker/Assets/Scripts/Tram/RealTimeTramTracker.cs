@@ -73,20 +73,20 @@ public class RealTimeTramTracker : MonoBehaviour
 
         if (fetchTask.IsFaulted)
         {
-            Debug.LogError("Failed to fetch GPS data.");
+            //Debug.LogError("Failed to fetch GPS data.");
             yield break;
         }
 
         Vector2 newGPSPosition = fetchTask.Result;
         if (newGPSPosition == Vector2.zero)
         {
-            Debug.LogWarning("No valid GPS position received.");
+            //Debug.LogWarning("No valid GPS position received.");
             yield break;
         }
 
         if (!HasSignificantMovement(newGPSPosition, lastGPSPosition, minMoveThreshold))
         {
-            Debug.Log("Small GPS change detected. Skipping update.");
+            //Debug.Log("Small GPS change detected. Skipping update.");
             yield break;
         }
 

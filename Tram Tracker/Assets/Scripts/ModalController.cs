@@ -3,76 +3,153 @@ using TMPro;
 
 public class ModalController : MonoBehaviour
 {
-    public GameObject tramStationModal; // Reference to the TramStationModal GameObject
-    public TextMeshProUGUI ObjectName; // Reference to the name text object
-    public TextMeshProUGUI ObjectDetails; // Reference to the details text object
+    public GameObject tramStationModal; // Modal window for selecting stations
+    public TextMeshProUGUI ObjectName;   // Text for station name
+    public TextMeshProUGUI ObjectDetails; // Text for station details
     public GameObject ExitButton;
     public GameObject SettingsButton;
     public GameObject RefreshButton;
-    public GameObject[] stationButtons; // Reference to the buttons that represent each station
+    public GameObject[] stationButtons; // Buttons inside modal for each station
 
-    // Call this method to display the modal with options
-    public void ShowModal()
+    public CameraSwitcher cameraSwitcher; // Reference to the CameraSwitcher script!
+
+    // =============================
+    // ======= PUBLIC BUTTONS ======
+    // =============================
+
+    // Call this when pressing the Station Button from main menu
+    public void OnStationButtonClicked()
     {
-        // Activate the modal
-        tramStationModal.SetActive(true);
-        
-        // Show all available station buttons
-        foreach (var button in stationButtons)
-        {
-            button.SetActive(true); 
-        }
+        Debug.Log("Station Button Clicked");
+
+        // JUST show the modal, no 2D switch!
+        ShowModal();
     }
 
-    // Call this method to display the specific station's details
-    public void ShowStationInfo(int stationIndex)
+    // Call this when a station button is clicked inside the modal
+    public void OnStationSelected(int stationIndex)
     {
-        // Hide all station buttons first if only showing info
+        Debug.Log($"Station {stationIndex} Selected");
+
+        // Show station info
+        ShowStationInfo(stationIndex);
+
+        // Switch to the correct camera for this station!
+        SwitchStationCamera(stationIndex);
+    }
+
+    // =============================
+    // ======= PRIVATE LOGIC =======
+    // =============================
+
+    // Displays the modal with station selection buttons
+    private void ShowModal()
+    {
+        Debug.Log("Showing Station Modal");
+
+        tramStationModal.SetActive(true);
+
+        foreach (var button in stationButtons)
+        {
+            button.SetActive(true);
+        }
+
+        // SettingsButton.SetActive(true);
+        // RefreshButton.SetActive(true);
+
+        ObjectName.gameObject.SetActive(false);
+        ObjectDetails.gameObject.SetActive(false);
+        ExitButton.SetActive(true);
+    }
+
+    // Displays specific station details based on selection
+    private void ShowStationInfo(int stationIndex)
+    {
+        Debug.Log($"Showing Info for Station {stationIndex}");
+
         foreach (var button in stationButtons)
         {
             button.SetActive(false);
         }
 
-        // Update ObjectName and ObjectDetails based on the selected station
         switch (stationIndex)
         {
-            case 0: // MSM Station
+            case 0:
                 ObjectName.text = "MSM Station";
                 ObjectDetails.text = "Details about MSM Station...";
                 break;
-            case 1: // IT Station
+            case 1:
                 ObjectName.text = "IT Station";
                 ObjectDetails.text = "Details about IT Station...";
                 break;
-            case 2: // AUMall Station
+            case 2:
                 ObjectName.text = "AUMall Station";
                 ObjectDetails.text = "Details about AUMall Station...";
                 break;
-            case 3: // Queen Of Sheba Station
+            case 3:
                 ObjectName.text = "Queen Of Sheba Station";
                 ObjectDetails.text = "Details about Queen Of Sheba Station...";
                 break;
             default:
-                Debug.LogWarning("Unknown station index: " + stationIndex);
+                Debug.LogWarning($"Unknown station index: {stationIndex}");
+                ObjectName.text = "Unknown Station";
+                ObjectDetails.text = "No details available.";
                 break;
         }
 
-        // Show the ObjectName and ObjectDetails
         ObjectName.gameObject.SetActive(true);
         ObjectDetails.gameObject.SetActive(true);
+
         ExitButton.SetActive(true);
         tramStationModal.SetActive(false);
+
         SettingsButton.SetActive(false);
         RefreshButton.SetActive(false);
     }
 
-    public void ExitStationSelectior()
+    private void SwitchStationCamera(int stationIndex)
     {
+        if (cameraSwitcher == null)
+        {
+            Debug.LogError("CameraSwitcher reference not set on ModalController!");
+            return;
+        }
+
+        // Switch based on station index
+        switch (stationIndex)
+        {
+            case 0:
+                cameraSwitcher.SwitchToCamera("msm");
+                break;
+            case 1:
+                cameraSwitcher.SwitchToCamera("it");
+                break;
+            case 2:
+                cameraSwitcher.SwitchToCamera("aumall");
+                break;
+            case 3:
+                cameraSwitcher.SwitchToCamera("queen");
+                break;
+            default:
+                Debug.LogWarning($"No camera switch found for station index: {stationIndex}");
+                break;
+        }
+    }
+
+    // Exits station selector and resets UI
+    public void ExitStationSelector()
+    {
+        Debug.Log("Exiting Station Selector");
+
         tramStationModal.SetActive(false);
         ObjectName.gameObject.SetActive(false);
         ObjectDetails.gameObject.SetActive(false);
-        ExitButton.gameObject.SetActive(false);
-        SettingsButton.gameObject.SetActive(true);
-        RefreshButton.gameObject.SetActive(true);
+        ExitButton.SetActive(false);
+
+        // Restore default cameras (optional)
+        //cameraSwitcher.SwitchToCamera("tram");
+
+        SettingsButton.SetActive(true);
+        RefreshButton.SetActive(true);
     }
 }
