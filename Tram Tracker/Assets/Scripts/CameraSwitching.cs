@@ -65,6 +65,9 @@ public class CameraSwitcher : MonoBehaviour
             case "queen":
                 ActivateCamera(StationCams[3]);
                 break;
+            case "dorm":
+                ActivateCamera(StationCams[4]);
+                break;
             default:
                 Debug.LogWarning("Unknown camera type: " + cameraType);
                 break;
