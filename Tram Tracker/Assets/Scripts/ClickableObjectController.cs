@@ -183,6 +183,7 @@
 
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ClickableObjectController : MonoBehaviour
 {
@@ -190,6 +191,10 @@ public class ClickableObjectController : MonoBehaviour
     public TextMeshProUGUI ObjectDetails; // Reference to the details text object
     public string objectName; // Name for display
     public string objectDetails; // Details for display
+    public GameObject ExitButton;
+    public GameObject SettingsButton;
+    public GameObject RefreshButton;
+    public Button DimensionButton;
     private CameraSwitcher cameraSwitcher; // Reference to your CameraSwitcher
 
     void Start()
@@ -229,6 +234,15 @@ public class ClickableObjectController : MonoBehaviour
         // Make the UI elements visible
         ObjectName.gameObject.SetActive(true);
         ObjectDetails.gameObject.SetActive(true);
+
+        ExitButton.SetActive(true);
+        
+        SettingsButton.SetActive(false); // Hide settings if unnecessary
+        RefreshButton.SetActive(false); // Hide refresh button if unnecessary
+        DimensionButton.interactable = false; // Disable dimension button while in detail view
+
+
+        
 
         // Call the CameraSwitcher to switch the camera
         if (cameraSwitcher != null)
