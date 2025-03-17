@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 20453913}
   - component: {fileID: 20453912}
   m_Layer: 0
-  m_Name: ObjectDetail
+  m_Name: ObjectDetails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6757,6 +6757,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tramStationModal: {fileID: 1355857679}
+  ObjectName: {fileID: 0}
+  ObjectDetails: {fileID: 0}
+  stationButtons: []
 --- !u!4 &277438623
 Transform:
   m_ObjectHideFlags: 0
@@ -44734,7 +44737,7 @@ MonoBehaviour:
       - m_Target: {fileID: 277438622}
         m_TargetAssemblyTypeName: ModalController, Assembly-CSharp
         m_MethodName: ShowModal
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
