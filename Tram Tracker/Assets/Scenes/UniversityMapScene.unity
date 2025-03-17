@@ -6757,9 +6757,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tramStationModal: {fileID: 1355857679}
-  ObjectName: {fileID: 0}
-  ObjectDetails: {fileID: 0}
-  stationButtons: []
+  ObjectName: {fileID: 935528053}
+  ObjectDetails: {fileID: 20453912}
+  SettingsButton: {fileID: 1641043518}
+  stationButtons:
+  - {fileID: 133117861}
+  - {fileID: 1331998500}
+  - {fileID: 644886429}
+  - {fileID: 338407074}
 --- !u!4 &277438623
 Transform:
   m_ObjectHideFlags: 0
