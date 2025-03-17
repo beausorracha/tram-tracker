@@ -31004,6 +31004,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1122038791}
+  - component: {fileID: 1122038792}
   m_Layer: 0
   m_Name: AllGroundGrass
   m_TagString: Untagged
@@ -31054,6 +31055,21 @@ Transform:
   - {fileID: 805811651}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1122038792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122038790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26564c94a06b64f528e7926ef22b550c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grassParent: {fileID: 1122038791}
+  dragSpeed: 0.1
+  edgePadding: 10
 --- !u!1 &1122787888
 GameObject:
   m_ObjectHideFlags: 0
