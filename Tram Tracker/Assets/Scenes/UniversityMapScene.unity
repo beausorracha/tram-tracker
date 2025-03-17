@@ -7962,13 +7962,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
-  ExitButton: {fileID: 1349604366}
-  SettingsButton: {fileID: 1641043518}
-  RefreshButton: {fileID: 243941202}
-  DimensionButton: {fileID: 297502759}
   objectName: Dorm
   objectDetails: This building have student dorm and museum.
-  virtualCamera: {fileID: 1355037470}
+  ExitButton: {fileID: 0}
+  SettingsButton: {fileID: 0}
+  RefreshButton: {fileID: 0}
+  DimensionButton: {fileID: 0}
 --- !u!1001 &302710769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12468,6 +12467,16 @@ MonoBehaviour:
   - {fileID: 1359450830}
   - {fileID: 1244484756}
   - {fileID: 1355037470}
+  - {fileID: 826314982}
+  - {fileID: 998913547}
+  - {fileID: 1502697618}
+  - {fileID: 1248327812}
+  - {fileID: 742856308}
+  - {fileID: 492516030}
+  - {fileID: 2130722072}
+  - {fileID: 2140504102}
+  - {fileID: 1505173370}
+  - {fileID: 1297572904}
 --- !u!4 &434206843
 Transform:
   m_ObjectHideFlags: 0
@@ -13332,13 +13341,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
-  ExitButton: {fileID: 1349604366}
-  SettingsButton: {fileID: 1641043518}
-  RefreshButton: {fileID: 243941202}
-  DimensionButton: {fileID: 297502759}
   objectName: VMES
   objectDetails: VMES details
-  virtualCamera: {fileID: 1502697618}
+  ExitButton: {fileID: 0}
+  SettingsButton: {fileID: 0}
+  RefreshButton: {fileID: 0}
+  DimensionButton: {fileID: 0}
 --- !u!65 &453814359
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13487,13 +13495,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
-  ExitButton: {fileID: 1349604366}
-  SettingsButton: {fileID: 1641043518}
-  RefreshButton: {fileID: 243941202}
-  DimensionButton: {fileID: 297502759}
   objectName: CP Building
   objectDetails: CP Details
-  virtualCamera: {fileID: 492516030}
+  ExitButton: {fileID: 0}
+  SettingsButton: {fileID: 0}
+  RefreshButton: {fileID: 0}
+  DimensionButton: {fileID: 0}
 --- !u!1 &457581438
 GameObject:
   m_ObjectHideFlags: 0
@@ -14164,7 +14171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &492516029
 Transform:
   m_ObjectHideFlags: 0
@@ -15688,13 +15695,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
-  ExitButton: {fileID: 1349604366}
-  SettingsButton: {fileID: 1641043518}
-  RefreshButton: {fileID: 243941202}
-  DimensionButton: {fileID: 297502759}
   objectName: CA
   objectDetails: CA Details
-  virtualCamera: {fileID: 2140504102}
+  ExitButton: {fileID: 0}
+  SettingsButton: {fileID: 0}
+  RefreshButton: {fileID: 0}
+  DimensionButton: {fileID: 0}
 --- !u!4 &539613090 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4823253685639953364, guid: 5282094a8052e4f60b1f6fc84179f681, type: 3}
@@ -16438,13 +16444,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
-  ExitButton: {fileID: 1349604366}
-  SettingsButton: {fileID: 1641043518}
-  RefreshButton: {fileID: 243941202}
-  DimensionButton: {fileID: 297502759}
   objectName: VMES Fountain
   objectDetails: Fountain Details
-  virtualCamera: {fileID: 1505173370}
+  ExitButton: {fileID: 0}
+  SettingsButton: {fileID: 0}
+  RefreshButton: {fileID: 0}
+  DimensionButton: {fileID: 0}
 --- !u!1 &569424626
 GameObject:
   m_ObjectHideFlags: 0
@@ -19811,13 +19816,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
-  ExitButton: {fileID: 1349604366}
-  SettingsButton: {fileID: 1641043518}
-  RefreshButton: {fileID: 243941202}
-  DimensionButton: {fileID: 297502759}
   objectName: IT Building
   objectDetails: IT Details
-  virtualCamera: {fileID: 742856308}
+  ExitButton: {fileID: 0}
+  SettingsButton: {fileID: 0}
+  RefreshButton: {fileID: 0}
+  DimensionButton: {fileID: 0}
 --- !u!1 &710356707
 GameObject:
   m_ObjectHideFlags: 0
@@ -20940,7 +20944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &742856307
 Transform:
   m_ObjectHideFlags: 0
@@ -23169,7 +23173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &826314981
 Transform:
   m_ObjectHideFlags: 0
@@ -28815,13 +28819,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
-  ExitButton: {fileID: 1349604366}
-  SettingsButton: {fileID: 1641043518}
-  RefreshButton: {fileID: 243941202}
-  DimensionButton: {fileID: 297502759}
   objectName: MSME Building
   objectDetails: MSME details
-  virtualCamera: {fileID: 998913547}
+  ExitButton: {fileID: 0}
+  SettingsButton: {fileID: 0}
+  RefreshButton: {fileID: 0}
+  DimensionButton: {fileID: 0}
 --- !u!1001 &987176674
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29243,7 +29246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &998913546
 Transform:
   m_ObjectHideFlags: 0
@@ -29316,13 +29319,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
+  objectName: 
+  objectDetails: 
   ExitButton: {fileID: 0}
   SettingsButton: {fileID: 0}
   RefreshButton: {fileID: 0}
   DimensionButton: {fileID: 0}
-  objectName: 
-  objectDetails: 
-  virtualCamera: {fileID: 998913547}
 --- !u!1001 &999131820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31979,13 +31981,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
-  ExitButton: {fileID: 1349604366}
-  SettingsButton: {fileID: 1641043518}
-  RefreshButton: {fileID: 243941202}
-  DimensionButton: {fileID: 297502759}
   objectName: AR Building
   objectDetails: AR details
-  virtualCamera: {fileID: 2130722072}
+  ExitButton: {fileID: 0}
+  SettingsButton: {fileID: 0}
+  RefreshButton: {fileID: 0}
+  DimensionButton: {fileID: 0}
 --- !u!1001 &1129838580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34496,7 +34497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1248327811
 Transform:
   m_ObjectHideFlags: 0
@@ -35361,7 +35362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1297572903
 Transform:
   m_ObjectHideFlags: 0
@@ -36922,7 +36923,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1355037469
 Transform:
   m_ObjectHideFlags: 0
@@ -40190,7 +40191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1502697617
 Transform:
   m_ObjectHideFlags: 0
@@ -40322,7 +40323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1505173369
 Transform:
   m_ObjectHideFlags: 0
@@ -47655,13 +47656,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
-  ExitButton: {fileID: 1349604366}
-  SettingsButton: {fileID: 1641043518}
-  RefreshButton: {fileID: 243941202}
-  DimensionButton: {fileID: 297502759}
   objectName: CL building
   objectDetails: details for cl
-  virtualCamera: {fileID: 826314982}
+  ExitButton: {fileID: 0}
+  SettingsButton: {fileID: 0}
+  RefreshButton: {fileID: 0}
+  DimensionButton: {fileID: 0}
 --- !u!114 &1729986377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47676,13 +47676,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
-  ExitButton: {fileID: 1349604366}
-  SettingsButton: {fileID: 1641043518}
-  RefreshButton: {fileID: 243941202}
-  DimensionButton: {fileID: 297502759}
   objectName: CL
   objectDetails: CL detail
-  virtualCamera: {fileID: 826314982}
+  ExitButton: {fileID: 0}
+  SettingsButton: {fileID: 0}
+  RefreshButton: {fileID: 0}
+  DimensionButton: {fileID: 0}
 --- !u!1001 &1731578940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50035,13 +50034,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
-  ExitButton: {fileID: 1349604366}
-  SettingsButton: {fileID: 1641043518}
-  RefreshButton: {fileID: 243941202}
-  DimensionButton: {fileID: 297502759}
   objectName: MED
   objectDetails: MED details
-  virtualCamera: {fileID: 1248327812}
+  ExitButton: {fileID: 0}
+  SettingsButton: {fileID: 0}
+  RefreshButton: {fileID: 0}
+  DimensionButton: {fileID: 0}
 --- !u!1001 &1842581114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58753,7 +58751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2130722071
 Transform:
   m_ObjectHideFlags: 0
@@ -58902,7 +58900,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2140504101
 Transform:
   m_ObjectHideFlags: 0

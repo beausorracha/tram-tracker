@@ -68,6 +68,36 @@ public class CameraSwitcher : MonoBehaviour
             case "dorm":
                 ActivateCamera(StationCams[4]);
                 break;
+            case "cl":
+                ActivateCamera(StationCams[5]);
+                break;
+            case "msmB":
+                ActivateCamera(StationCams[6]);
+                break;
+            case "vmes":
+                ActivateCamera(StationCams[7]);
+                break;
+            case "med":
+                ActivateCamera(StationCams[8]);
+                break;
+            case "itB":
+                ActivateCamera(StationCams[9]);
+                break;
+            case "cp":
+                ActivateCamera(StationCams[10]);
+                break;
+            case "ar":
+                ActivateCamera(StationCams[11]);
+                break;
+            case "ca":
+                ActivateCamera(StationCams[12]);
+                break;
+            case "fountain":
+                ActivateCamera(StationCams[13]);
+                break;
+                case "goldenRock":
+                ActivateCamera(StationCams[14]);
+                break;
             default:
                 Debug.LogWarning("Unknown camera type: " + cameraType);
                 break;
