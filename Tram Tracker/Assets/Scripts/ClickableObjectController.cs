@@ -1,11 +1,17 @@
 using UnityEngine;
 using Unity.Cinemachine; // To use Cinemachine cameras
 using TMPro; // To use TextMeshPro
+using UnityEngine.UI;
 
 public class ClickableObjectController : MonoBehaviour
 {
     public TextMeshProUGUI ObjectName; // Reference to the name text object
     public TextMeshProUGUI ObjectDetails; // Reference to the details text object
+    public GameObject ExitButton;
+    public GameObject SettingsButton;
+    public GameObject RefreshButton;
+    public Button DimensionButton;
+
     public string objectName; // Name to display (set in the Inspector for each GameObject)
     public string objectDetails; // Details to display (set in the Inspector for each GameObject)
     public CinemachineCamera virtualCamera; // Reference to the object's CinemachineCamera
@@ -50,6 +56,10 @@ public class ClickableObjectController : MonoBehaviour
             // Make sure the UI elements are visible
             ObjectName.gameObject.SetActive(true);
             ObjectDetails.gameObject.SetActive(true);
+            ExitButton.SetActive(true);
+            SettingsButton.SetActive(false);
+            RefreshButton.SetActive(false);
+            DimensionButton.interactable = false;
         }
 
         // Switch to the object's associated camera
@@ -75,4 +85,17 @@ public class ClickableObjectController : MonoBehaviour
             Debug.LogWarning("No assigned CinemachineCamera for " + name);
         }
     }
+        
+    // public void ExitObjectSelector()
+    // {
+    //     Debug.Log("Exiting Object Selector");
+
+    //     ObjectName.gameObject.SetActive(false);
+    //     ObjectDetails.gameObject.SetActive(false);
+    //     ExitButton.SetActive(false);
+
+    //     SettingsButton.SetActive(true);
+    //     RefreshButton.SetActive(true);
+    //     DimensionButton.interactable = true;
+    // }
 }
