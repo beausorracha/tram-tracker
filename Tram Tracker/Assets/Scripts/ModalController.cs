@@ -4,47 +4,55 @@ using UnityEngine.UI;
 
 public class ModalController : MonoBehaviour
 {
-    public GameObject tramStationModal; // Modal window for selecting stations
-    public TextMeshProUGUI ObjectName;   // Text for station name
-    public TextMeshProUGUI ObjectDetails; // Text for station details
+    public GameObject tramStationModal;
+    public TextMeshProUGUI ObjectName;
+    public TextMeshProUGUI ObjectDetails;
     public GameObject ExitButton;
     public GameObject SettingsButton;
     public GameObject RefreshButton;
     public Button DimensionButton;
-    public GameObject[] stationButtons; // Buttons inside modal for each station
+    public GameObject[] stationButtons;
 
-    public CameraSwitcher cameraSwitcher; // Reference to the CameraSwitcher script!
+    public CameraSwitcher cameraSwitcher;
 
-    // =============================
-    // ======= PUBLIC BUTTONS ======
-    // =============================
-
-    // Call this when pressing the Station Button from main menu
     public void OnStationButtonClicked()
     {
         Debug.Log("Station Button Clicked");
-
-        // JUST show the modal, no 2D switch!
         ShowModal();
     }
 
-    // Call this when a station button is clicked inside the modal
     public void OnStationSelected(int stationIndex)
     {
         Debug.Log($"Station {stationIndex} Selected");
-
-        // Show station info
         ShowStationInfo(stationIndex);
-
-        // Switch to the correct camera for this station!
         SwitchStationCamera(stationIndex);
     }
 
-    // =============================
-    // ======= PRIVATE LOGIC =======
-    // =============================
+    // ✅ Dimension Button handler (added only this function)
+    public void OnDimensionButtonClicked()
+{
+    Debug.Log("Dimension Button Clicked");
 
-    // Displays the modal with station selection buttons
+    if (cameraSwitcher == null)
+    {
+        Debug.LogError("CameraSwitcher reference not set on ModalController!");
+        return;
+    }
+
+    cameraSwitcher.SwitchToCamera("map");
+
+    tramStationModal.SetActive(false);
+    ObjectName.gameObject.SetActive(false);
+    ObjectDetails.gameObject.SetActive(false);
+    ExitButton.SetActive(false);
+
+    SettingsButton.SetActive(true);
+    RefreshButton.SetActive(true);
+
+    DimensionButton.interactable = true;
+}
+
+
     public void ShowModal()
     {
         Debug.Log("Showing Station Modal");
@@ -56,16 +64,12 @@ public class ModalController : MonoBehaviour
             button.SetActive(true);
         }
 
-        // SettingsButton.SetActive(true);
-        // RefreshButton.SetActive(true);
-
         ObjectName.gameObject.SetActive(false);
         ObjectDetails.gameObject.SetActive(false);
         ExitButton.SetActive(true);
-        // DimensionButton.interactable = false;
+        DimensionButton.interactable = false;
     }
 
-    // Displays specific station details based on selection
     private void ShowStationInfo(int stationIndex)
     {
         Debug.Log($"Showing Info for Station {stationIndex}");
@@ -105,10 +109,8 @@ public class ModalController : MonoBehaviour
 
         ExitButton.SetActive(true);
         tramStationModal.SetActive(false);
-
         SettingsButton.SetActive(false);
         RefreshButton.SetActive(false);
-
     }
 
     private void SwitchStationCamera(int stationIndex)
@@ -119,7 +121,6 @@ public class ModalController : MonoBehaviour
             return;
         }
 
-        // Switch based on station index
         switch (stationIndex)
         {
             case 0:
@@ -140,7 +141,6 @@ public class ModalController : MonoBehaviour
         }
     }
 
-    // Exits station selector and resets UI
     public void ExitStationSelector()
     {
         Debug.Log("Exiting Station Selector");
@@ -150,12 +150,8 @@ public class ModalController : MonoBehaviour
         ObjectDetails.gameObject.SetActive(false);
         ExitButton.SetActive(false);
 
-        // Restore default cameras (optional)
-        //cameraSwitcher.SwitchToCamera("tram");
-
         SettingsButton.SetActive(true);
         RefreshButton.SetActive(true);
         DimensionButton.interactable = true;
-
     }
 }
