@@ -7962,6 +7962,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
+  ExitButton: {fileID: 1349604366}
+  SettingsButton: {fileID: 1641043518}
+  RefreshButton: {fileID: 243941202}
+  DimensionButton: {fileID: 297502759}
   objectName: Dorm
   objectDetails: This building have student dorm and museum.
   virtualCamera: {fileID: 1355037470}
@@ -28991,6 +28995,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
+  ExitButton: {fileID: 0}
+  SettingsButton: {fileID: 0}
+  RefreshButton: {fileID: 0}
+  DimensionButton: {fileID: 0}
   objectName: 
   objectDetails: 
   virtualCamera: {fileID: 998913547}
