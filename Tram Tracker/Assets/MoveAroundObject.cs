@@ -53,7 +53,7 @@ public class MoveAroundObject : MonoBehaviour
         // Substract forward vector of the GameObject to point its forward vector to the target
         Vector3 fixpos = new Vector3(transform.position.x, transform.position.y+100, transform.position.z);
         fixpos = _target.position - transform.forward * _distanceFromTarget; 
-        fixpos.y = Mathf.Max(fixpos.y, 3.4f);
+        fixpos.y = Mathf.Max(fixpos.y, 10f);
         transform.position = fixpos;
     }
 }
