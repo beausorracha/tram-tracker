@@ -23558,7 +23558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
-  objectName: AU Rock
+  objectName: AU Golden Rock
   objectDetails: Rock...? No, it's AU in the scientific periodic table!
   ExitButton: {fileID: 1349604366}
   SettingsButton: {fileID: 1641043518}
