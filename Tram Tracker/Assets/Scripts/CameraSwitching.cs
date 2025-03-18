@@ -6,7 +6,6 @@ public class CameraSwitcher : MonoBehaviour
     public CinemachineCamera TramCam;
     public CinemachineCamera MapCam;
     public CinemachineCamera[] StationCams;
-
     private CinemachineCamera currentActiveCamera;
     private bool isTramActive = true;
 
