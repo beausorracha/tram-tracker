@@ -7963,7 +7963,9 @@ MonoBehaviour:
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
   objectName: Dorm Building
-  objectDetails: This is dorm
+  objectDetails: "AU dorm contains King Solomon, Queen of Sheba, and King David\u2014arranged
+    in a U-shape around the King\u2019s Court, offering modern facilities and an
+    underground car park."
   ExitButton: {fileID: 1349604366}
   SettingsButton: {fileID: 1641043518}
   RefreshButton: {fileID: 243941202}
@@ -13347,7 +13349,9 @@ MonoBehaviour:
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
   objectName: VMES Building
-  objectDetails: Vincent Mary School of Engineering, Science and Technology
+  objectDetails: Vincent Mary School of Engineering, Science and Technology - Offering
+    comprehensive programs in engineering, science, and technology, providing a hands-on
+    learning environment for modern technical innovation.
   ExitButton: {fileID: 1349604366}
   SettingsButton: {fileID: 1641043518}
   RefreshButton: {fileID: 243941202}
@@ -13502,7 +13506,8 @@ MonoBehaviour:
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
   objectName: Car Parking Building
-  objectDetails: 30 Baht car parking fee
+  objectDetails: Secure and convenient student parking with easy campus access with
+    30 Baht car parking fee.
   ExitButton: {fileID: 1349604366}
   SettingsButton: {fileID: 1641043518}
   RefreshButton: {fileID: 243941202}
@@ -15703,7 +15708,9 @@ MonoBehaviour:
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
   objectName: CA Building
-  objectDetails: Communication Arts Building
+  objectDetails: Albert Laurence School of Communication Arts (CA) - Offering an
+    international program focusing on creative communication, media entrepreneurship,
+    and design skill
   ExitButton: {fileID: 1349604366}
   SettingsButton: {fileID: 1641043518}
   RefreshButton: {fileID: 243941202}
@@ -16453,7 +16460,8 @@ MonoBehaviour:
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
   objectName: VMES Fountain
-  objectDetails: This fountain has been here for a very long time
+  objectDetails: The central fountain gracefully unites the SLM and VMES buildings,
+    creating a harmonious focal point between them.
   ExitButton: {fileID: 1349604366}
   SettingsButton: {fileID: 1641043518}
   RefreshButton: {fileID: 243941202}
@@ -19826,7 +19834,9 @@ MonoBehaviour:
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
   objectName: IT Building
-  objectDetails: Information and Technology
+  objectDetails: Srirakdi Charmonman IT Building (SC/IT) - Offering modern classrooms,
+    computer facilities for students to excel in technology and innovation. It also
+    serves as an exam center and classrooms.
   ExitButton: {fileID: 1349604366}
   SettingsButton: {fileID: 1641043518}
   RefreshButton: {fileID: 243941202}
@@ -28854,7 +28864,9 @@ MonoBehaviour:
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
   objectName: MSME Building
-  objectDetails: Martin de Tours School of Management and Economics
+  objectDetails: Martin de Tours School of Management and Economics - Nationally
+    recognized as one of the top international business schools in Thailand for undergraduate
+    business education
   ExitButton: {fileID: 1349604366}
   SettingsButton: {fileID: 1641043518}
   RefreshButton: {fileID: 243941202}
@@ -32018,7 +32030,9 @@ MonoBehaviour:
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
   objectName: AR Building
-  objectDetails: Architecture Building
+  objectDetails: Monfort Del Rosario School of Architecture and Design (AR) - Offering
+    a comprehensive Architecture program that integrates culture, arts, science,
+    and technology
   ExitButton: {fileID: 1349604366}
   SettingsButton: {fileID: 1641043518}
   RefreshButton: {fileID: 243941202}
@@ -47686,7 +47700,8 @@ MonoBehaviour:
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
   objectName: CL Building
-  objectDetails: The tallest building in ABAC
+  objectDetails: The Cathedral of Learning (CL) - A multifunctional student hub featuring
+    a library, AU Plaza, offices for Professional Ethics Seminar, etc.
   ExitButton: {fileID: 1349604366}
   SettingsButton: {fileID: 1641043518}
   RefreshButton: {fileID: 243941202}
@@ -50045,7 +50060,9 @@ MonoBehaviour:
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
   objectName: SLM Building
-  objectDetails: this is med school
+  objectDetails: St.Luke School of Medicine -Offering medical students state-of-the-art
+    classrooms and laboratories, providing a comprehensive education to prepare them
+    for successful medical careers.
   ExitButton: {fileID: 1349604366}
   SettingsButton: {fileID: 1641043518}
   RefreshButton: {fileID: 243941202}
