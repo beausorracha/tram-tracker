@@ -7946,7 +7946,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 5, z: 6.5}
+  m_Size: {x: 5, y: 4, z: 6.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &297928679
 MonoBehaviour:
@@ -7962,7 +7962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
-  objectName: Dorm
+  objectName: Dorm Building
   objectDetails: This is dorm
   ExitButton: {fileID: 1349604366}
   SettingsButton: {fileID: 1641043518}
@@ -13242,6 +13242,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1711333675}
     m_Modifications:
+    - target: {fileID: 74438296144943201, guid: 6e0b94dfab8d547f08564969d9c46f77, type: 3}
+      propertyPath: m_Name
+      value: VMESBuilding
+      objectReference: {fileID: 0}
     - target: {fileID: 447717963895889060, guid: 6e0b94dfab8d547f08564969d9c46f77, type: 3}
       propertyPath: m_LocalPosition.x
       value: -29.455383
@@ -13340,15 +13344,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd14fe14e76734f71ba91d91c6fa8daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectName: {fileID: 0}
-  ObjectDetails: {fileID: 0}
-  objectName: 
-  objectDetails: 
-  ExitButton: {fileID: 0}
-  SettingsButton: {fileID: 0}
-  RefreshButton: {fileID: 0}
-  DimensionButton: {fileID: 0}
-  virtualCamera: {fileID: 0}
+  ObjectName: {fileID: 935528053}
+  ObjectDetails: {fileID: 20453912}
+  objectName: VMES Building
+  objectDetails: Vincent Mary School of Engineering, Science and Technology
+  ExitButton: {fileID: 1349604366}
+  SettingsButton: {fileID: 1641043518}
+  RefreshButton: {fileID: 243941202}
+  DimensionButton: {fileID: 297502759}
+  virtualCamera: {fileID: 1502697618}
 --- !u!65 &453814359
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13495,15 +13499,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd14fe14e76734f71ba91d91c6fa8daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectName: {fileID: 0}
-  ObjectDetails: {fileID: 0}
-  objectName: 
-  objectDetails: 
-  ExitButton: {fileID: 0}
-  SettingsButton: {fileID: 0}
-  RefreshButton: {fileID: 0}
-  DimensionButton: {fileID: 0}
-  virtualCamera: {fileID: 0}
+  ObjectName: {fileID: 935528053}
+  ObjectDetails: {fileID: 20453912}
+  objectName: Car Parking Building
+  objectDetails: 30 Baht car parking fee
+  ExitButton: {fileID: 1349604366}
+  SettingsButton: {fileID: 1641043518}
+  RefreshButton: {fileID: 243941202}
+  DimensionButton: {fileID: 297502759}
+  virtualCamera: {fileID: 492516030}
 --- !u!1 &457581438
 GameObject:
   m_ObjectHideFlags: 0
@@ -15696,15 +15700,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd14fe14e76734f71ba91d91c6fa8daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectName: {fileID: 0}
-  ObjectDetails: {fileID: 0}
-  objectName: 
-  objectDetails: 
-  ExitButton: {fileID: 0}
-  SettingsButton: {fileID: 0}
-  RefreshButton: {fileID: 0}
-  DimensionButton: {fileID: 0}
-  virtualCamera: {fileID: 0}
+  ObjectName: {fileID: 935528053}
+  ObjectDetails: {fileID: 20453912}
+  objectName: CA Building
+  objectDetails: Communication Arts Building
+  ExitButton: {fileID: 1349604366}
+  SettingsButton: {fileID: 1641043518}
+  RefreshButton: {fileID: 243941202}
+  DimensionButton: {fileID: 297502759}
+  virtualCamera: {fileID: 2140504102}
 --- !u!4 &539613090 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4823253685639953364, guid: 5282094a8052e4f60b1f6fc84179f681, type: 3}
@@ -16446,15 +16450,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd14fe14e76734f71ba91d91c6fa8daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectName: {fileID: 0}
-  ObjectDetails: {fileID: 0}
-  objectName: 
-  objectDetails: 
-  ExitButton: {fileID: 0}
-  SettingsButton: {fileID: 0}
-  RefreshButton: {fileID: 0}
-  DimensionButton: {fileID: 0}
-  virtualCamera: {fileID: 0}
+  ObjectName: {fileID: 935528053}
+  ObjectDetails: {fileID: 20453912}
+  objectName: VMES Fountain
+  objectDetails: This fountain has been here for a very long time
+  ExitButton: {fileID: 1349604366}
+  SettingsButton: {fileID: 1641043518}
+  RefreshButton: {fileID: 243941202}
+  DimensionButton: {fileID: 297502759}
+  virtualCamera: {fileID: 1505173370}
 --- !u!1 &569424626
 GameObject:
   m_ObjectHideFlags: 0
@@ -19819,15 +19823,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd14fe14e76734f71ba91d91c6fa8daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectName: {fileID: 0}
-  ObjectDetails: {fileID: 0}
-  objectName: 
-  objectDetails: 
-  ExitButton: {fileID: 0}
-  SettingsButton: {fileID: 0}
-  RefreshButton: {fileID: 0}
-  DimensionButton: {fileID: 0}
-  virtualCamera: {fileID: 0}
+  ObjectName: {fileID: 935528053}
+  ObjectDetails: {fileID: 20453912}
+  objectName: IT Building
+  objectDetails: Information and Technology
+  ExitButton: {fileID: 1349604366}
+  SettingsButton: {fileID: 1641043518}
+  RefreshButton: {fileID: 243941202}
+  DimensionButton: {fileID: 297502759}
+  virtualCamera: {fileID: 742856308}
 --- !u!1 &710356707
 GameObject:
   m_ObjectHideFlags: 0
@@ -23495,6 +23499,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 191339226088381226, guid: 0bb7d928c3e6840ac8f89af2e63eaddb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 841379296}
+    - targetCorrespondingSourceObject: {fileID: 191339226088381226, guid: 0bb7d928c3e6840ac8f89af2e63eaddb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 841379299}
   m_SourcePrefab: {fileID: 100100000, guid: 0bb7d928c3e6840ac8f89af2e63eaddb, type: 3}
 --- !u!4 &841379294 stripped
 Transform:
@@ -23521,12 +23528,33 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.022488477
   m_Center: {x: 0.0038158484, y: -0.0002883896, z: 0.004}
+--- !u!114 &841379299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841379295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd14fe14e76734f71ba91d91c6fa8daa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectName: {fileID: 935528053}
+  ObjectDetails: {fileID: 20453912}
+  objectName: AU Rock
+  objectDetails: Rock...? No, it's AU in the scientific periodic table!
+  ExitButton: {fileID: 1349604366}
+  SettingsButton: {fileID: 1641043518}
+  RefreshButton: {fileID: 243941202}
+  DimensionButton: {fileID: 297502759}
+  virtualCamera: {fileID: 1297572904}
 --- !u!1001 &841408898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28823,15 +28851,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd14fe14e76734f71ba91d91c6fa8daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectName: {fileID: 0}
-  ObjectDetails: {fileID: 0}
-  objectName: 
-  objectDetails: 
-  ExitButton: {fileID: 0}
-  SettingsButton: {fileID: 0}
-  RefreshButton: {fileID: 0}
-  DimensionButton: {fileID: 0}
-  virtualCamera: {fileID: 0}
+  ObjectName: {fileID: 935528053}
+  ObjectDetails: {fileID: 20453912}
+  objectName: MSME Building
+  objectDetails: Martin de Tours School of Management and Economics
+  ExitButton: {fileID: 1349604366}
+  SettingsButton: {fileID: 1641043518}
+  RefreshButton: {fileID: 243941202}
+  DimensionButton: {fileID: 297502759}
+  virtualCamera: {fileID: 998913547}
 --- !u!1001 &987176674
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31987,15 +32015,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd14fe14e76734f71ba91d91c6fa8daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectName: {fileID: 0}
-  ObjectDetails: {fileID: 0}
-  objectName: 
-  objectDetails: 
-  ExitButton: {fileID: 0}
-  SettingsButton: {fileID: 0}
-  RefreshButton: {fileID: 0}
-  DimensionButton: {fileID: 0}
-  virtualCamera: {fileID: 0}
+  ObjectName: {fileID: 935528053}
+  ObjectDetails: {fileID: 20453912}
+  objectName: AR Building
+  objectDetails: Architecture Building
+  ExitButton: {fileID: 1349604366}
+  SettingsButton: {fileID: 1641043518}
+  RefreshButton: {fileID: 243941202}
+  DimensionButton: {fileID: 297502759}
+  virtualCamera: {fileID: 2130722072}
 --- !u!1001 &1129838580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47581,9 +47609,6 @@ PrefabInstance:
       insertIndex: 0
       addedObject: {fileID: 826314981}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3975774504101632529, guid: e1add15e85a104e6c9d80de66952a13a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1729986376}
     - targetCorrespondingSourceObject: {fileID: 7415109516021291707, guid: e1add15e85a104e6c9d80de66952a13a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1729986375}
@@ -47592,7 +47617,7 @@ PrefabInstance:
       addedObject: {fileID: 1729986374}
     - targetCorrespondingSourceObject: {fileID: 7415109516021291707, guid: e1add15e85a104e6c9d80de66952a13a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1729986377}
+      addedObject: {fileID: 1729986381}
   m_SourcePrefab: {fileID: 100100000, guid: e1add15e85a104e6c9d80de66952a13a, type: 3}
 --- !u!4 &1729986371 stripped
 Transform:
@@ -47602,11 +47627,6 @@ Transform:
 --- !u!1 &1729986372 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7415109516021291707, guid: e1add15e85a104e6c9d80de66952a13a, type: 3}
-  m_PrefabInstance: {fileID: 1729986370}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1729986373 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3975774504101632529, guid: e1add15e85a104e6c9d80de66952a13a, type: 3}
   m_PrefabInstance: {fileID: 1729986370}
   m_PrefabAsset: {fileID: 0}
 --- !u!65 &1729986374
@@ -47651,28 +47671,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.3, y: 1.27, z: 0.29}
   m_Center: {x: 0.00000023841858, y: 7.507896e-15, z: 0.3253351}
---- !u!114 &1729986376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729986373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd14fe14e76734f71ba91d91c6fa8daa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectName: {fileID: 0}
-  ObjectDetails: {fileID: 0}
-  objectName: 
-  objectDetails: 
-  ExitButton: {fileID: 0}
-  SettingsButton: {fileID: 0}
-  RefreshButton: {fileID: 0}
-  DimensionButton: {fileID: 0}
-  virtualCamera: {fileID: 0}
---- !u!114 &1729986377
+--- !u!114 &1729986381
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47684,15 +47683,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd14fe14e76734f71ba91d91c6fa8daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectName: {fileID: 0}
-  ObjectDetails: {fileID: 0}
-  objectName: 
-  objectDetails: 
-  ExitButton: {fileID: 0}
-  SettingsButton: {fileID: 0}
-  RefreshButton: {fileID: 0}
-  DimensionButton: {fileID: 0}
-  virtualCamera: {fileID: 0}
+  ObjectName: {fileID: 935528053}
+  ObjectDetails: {fileID: 20453912}
+  objectName: CL Building
+  objectDetails: The tallest building in ABAC
+  ExitButton: {fileID: 1349604366}
+  SettingsButton: {fileID: 1641043518}
+  RefreshButton: {fileID: 243941202}
+  DimensionButton: {fileID: 297502759}
+  virtualCamera: {fileID: 826314982}
 --- !u!1001 &1731578940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50045,7 +50044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: {fileID: 935528053}
   ObjectDetails: {fileID: 20453912}
-  objectName: Med School
+  objectName: SLM Building
   objectDetails: this is med school
   ExitButton: {fileID: 1349604366}
   SettingsButton: {fileID: 1641043518}

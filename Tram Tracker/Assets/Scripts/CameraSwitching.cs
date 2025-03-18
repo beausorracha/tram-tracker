@@ -64,37 +64,37 @@ public class CameraSwitcher : MonoBehaviour
             case "queen":
                 ActivateCamera(StationCams[3]);
                 break;
-            case "dorm":
+            case "dormbuilding":
                 ActivateCamera(StationCams[4]);
                 break;
-            case "cl":
+            case "clbuilding":
                 ActivateCamera(StationCams[5]);
                 break;
-            case "msmB":
+            case "msmebuilding":
                 ActivateCamera(StationCams[6]);
                 break;
-            case "vmes":
+            case "vmesbuilding":
                 ActivateCamera(StationCams[7]);
                 break;
-            case "med":
+            case "slmbuilding":
                 ActivateCamera(StationCams[8]);
                 break;
-            case "itB":
+            case "itbuilding":
                 ActivateCamera(StationCams[9]);
                 break;
-            case "cp":
+            case "carparkingbuilding":
                 ActivateCamera(StationCams[10]);
                 break;
-            case "ar":
+            case "arbuilding":
                 ActivateCamera(StationCams[11]);
                 break;
-            case "ca":
+            case "cabuilding":
                 ActivateCamera(StationCams[12]);
                 break;
-            case "fountain":
+            case "vmesfountain":
                 ActivateCamera(StationCams[13]);
                 break;
-                case "goldenRock":
+                case "augoldenrock":
                 ActivateCamera(StationCams[14]);
                 break;
             default:
