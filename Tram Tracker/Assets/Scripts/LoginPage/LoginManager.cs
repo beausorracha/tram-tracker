@@ -11,7 +11,7 @@ public class LoginManager : MonoBehaviour
     private static readonly string authUrl = $"https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize" +
         "?client_id=865e92d6-3eba-43bc-b016-ae6806198910" +  
         "&response_type=token" +  
-        "&redirect_uri=msauth.com.autram.tramtracker://auth" +  
+        "&redirect_uri=msauth.com.autram.tramtrackercody://auth" +  
         "&scope=User.Read" +  
         "&prompt=select_account";  
 
