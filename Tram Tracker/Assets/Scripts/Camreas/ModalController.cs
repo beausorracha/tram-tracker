@@ -83,19 +83,19 @@ public class ModalController : MonoBehaviour
         {
             case 0:
                 ObjectName.text = "MSM Station";
-                ObjectDetails.text = "Details about MSM Station...";
+                ObjectDetails.text = "This station locates infront of the Martin de Tours School of Management Building, this station normally drop off the students only.";
                 break;
             case 1:
                 ObjectName.text = "IT Station";
-                ObjectDetails.text = "Details about IT Station...";
+                ObjectDetails.text = "IT Station locates infront of the Srirakdi Charmonman Information Technology Building";
                 break;
             case 2:
-                ObjectName.text = "AUMall Station";
-                ObjectDetails.text = "Details about AUMall Station...";
+                ObjectName.text = "AU Mall Station";
+                ObjectDetails.text = "This station locates infront of AU Mall, so after you eat, you can come here!";
                 break;
             case 3:
                 ObjectName.text = "Queen Of Sheba Station";
-                ObjectDetails.text = "Details about Queen Of Sheba Station...";
+                ObjectDetails.text = "This station locates infront of the Queen Of Sheba Dormitory";
                 break;
             default:
                 Debug.LogWarning($"Unknown station index: {stationIndex}");
