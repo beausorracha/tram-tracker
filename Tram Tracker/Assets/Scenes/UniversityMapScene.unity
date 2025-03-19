@@ -11093,6 +11093,9 @@ MonoBehaviour:
   updateInterval: 1
   minTramSpeed: 1
   smoothingFactor: 0.2
+  currentStationIndex: 0
+  lastTramPositionX: 0
+  tramSpeed: 10
 --- !u!1001 &394361607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51836,53 +51839,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ce590030fa9c4cb3a029ea6d171c8d1, type: 3}
---- !u!1 &1895486311
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1895486313}
-  - component: {fileID: 1895486312}
-  m_Layer: 0
-  m_Name: ETAmanager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1895486312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895486311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83010e0d2b12e4dbea92c77b2a9bf26d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  estimatedTime: 0
-  nextStationName: Unknown
-  tramStatus: Moving
---- !u!4 &1895486313
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895486311}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 291.21875, y: 134.3501, z: -16.794495}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1897119227
 GameObject:
   m_ObjectHideFlags: 0
@@ -59287,7 +59243,6 @@ SceneRoots:
   - {fileID: 873020242}
   - {fileID: 315684667}
   - {fileID: 339097946}
-  - {fileID: 1895486313}
   - {fileID: 1827428602}
   - {fileID: 1168650199}
   - {fileID: 1662056043}
